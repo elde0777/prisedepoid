@@ -491,7 +491,104 @@ const sumMacros = (items) => items.reduce((acc, item) => {
 }, zeroMacros());
 
 // ===========================================================================
+
+// ==================== DISCLAIMER SCREEN ====================================
+function DisclaimerScreen({ onAccept }) {
+  const [checked, setChecked] = React.useState(false);
+  return (
+    <div style={{
+      minHeight:"100vh", background:"#050510", display:"flex",
+      flexDirection:"column", alignItems:"center", justifyContent:"center",
+      padding:"24px", fontFamily:"system-ui,sans-serif"
+    }}>
+      <div style={{maxWidth:420, width:"100%"}}>
+        {/* Logo */}
+        <div style={{textAlign:"center", marginBottom:32}}>
+          <div style={{fontSize:40, fontWeight:900, color:"#f97316", letterSpacing:4}}>GainMode</div>
+          <div style={{fontSize:12, color:"#6b7280", letterSpacing:2, marginTop:4}}>BUILT DIFFERENT</div>
+        </div>
+
+        {/* Card */}
+        <div style={{background:"#0f172a", border:"1px solid #1f2937", borderRadius:16, padding:24, marginBottom:20}}>
+          <div style={{fontSize:16, fontWeight:800, color:"#f97316", marginBottom:16, textAlign:"center"}}>
+            Avertissement important
+          </div>
+
+          <div style={{fontSize:13, color:"#94a3b8", lineHeight:1.7, marginBottom:16}}>
+            GainMode est une application de suivi personnel creee a titre indicatif uniquement.
+          </div>
+
+          <div style={{display:"flex", flexDirection:"column", gap:12, marginBottom:16}}>
+            {[
+              ["Pas un avis medical", "Cette application ne remplace en aucun cas une consultation avec un medecin, un nutritionniste ou un coach sportif diplome."],
+              ["Donnees approximatives", "Les valeurs caloriques et nutritionnelles sont des estimations. Elles ne constituent pas un bilan nutritionnel precis."],
+              ["Usage strictement personnel", "Cette application a ete creee pour un usage personnel prive. Toute utilisation par un tiers sans autorisation explicite du createur est faite sous sa propre responsabilite."],
+              ["Consulte un professionnel", "Avant tout changement alimentaire ou programme sportif significatif, consulte un professionnel de sante qualifie."],
+            ].map(([title, text]) => (
+              <div key={title} style={{background:"#1e293b", borderRadius:10, padding:"12px 14px", borderLeft:"3px solid #f97316"}}>
+                <div style={{fontSize:12, fontWeight:700, color:"#f97316", marginBottom:4}}>{title}</div>
+                <div style={{fontSize:12, color:"#6b7280", lineHeight:1.6}}>{text}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Checkbox */}
+          <div style={{display:"flex", alignItems:"flex-start", gap:12, cursor:"pointer", padding:"8px 0"}}
+            onClick={() => setChecked(c => !c)}>
+            <div style={{
+              width:22, height:22, borderRadius:6, flexShrink:0, marginTop:1,
+              background: checked ? "#f97316" : "#1f2937",
+              border: `2px solid ${checked ? "#f97316" : "#374151"}`,
+              display:"flex", alignItems:"center", justifyContent:"center",
+              transition:"all .2s"
+            }}>
+              {checked && <span style={{color:"#fff", fontSize:14, fontWeight:900}}>OK</span>}
+            </div>
+            <span style={{fontSize:12, color:"#94a3b8", lineHeight:1.6}}>
+              Je comprends que GainMode est un outil indicatif personnel et non un substitut a un suivi medical ou sportif professionnel. J'utilise cette application sous ma propre responsabilite.
+            </span>
+          </div>
+        </div>
+
+        {/* Accept button */}
+        <button
+          onClick={onAccept}
+          disabled={!checked}
+          style={{
+            width:"100%", padding:"15px",
+            background: checked ? "linear-gradient(135deg,#f97316,#fbbf24)" : "#1f2937",
+            color: checked ? "#fff" : "#374151",
+            border:"none", borderRadius:12,
+            fontWeight:800, fontSize:15, letterSpacing:1,
+            cursor: checked ? "pointer" : "not-allowed",
+            transition:"all .3s"
+          }}>
+          {checked ? "Acceder a GainMode" : "Cochez la case pour continuer"}
+        </button>
+
+        <div style={{fontSize:10, color:"#374151", textAlign:"center", marginTop:12, lineHeight:1.5}}>
+          Ce message n'apparaitra qu'une seule fois. En cas de doute sur ta sante, consulte toujours un professionnel.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
+  const [disclaimer, setDisclaimer] = useState(() => {
+    try { return localStorage.getItem("gainmode_disclaimer") !== "accepted"; }
+    catch { return true; }
+  });
+
+  const acceptDisclaimer = () => {
+    try { localStorage.setItem("gainmode_disclaimer", "accepted"); } catch {}
+    setDisclaimer(false);
+  };
+
+  if (disclaimer) {
+    return <DisclaimerScreen onAccept={acceptDisclaimer} />;
+  }
+
   const [tab, setTab]   = useState("journal");
   const [db,  setDb]    = useState(loadDB);
   const [date, setDate] = useState(todayStr());
@@ -1339,7 +1436,7 @@ function ProgramTab({ day, updateDay }) {
 
       {activeTab==="exercises" && (
         <>
-          {/* Muscles filter — scroll horizontal contenu, pas la page */}
+          {/* Muscles filter - scroll horizontal contenu, pas la page */}
           <div style={{overflowX:"auto",WebkitOverflowScrolling:"touch",marginLeft:-12,marginRight:-12,paddingLeft:12,paddingRight:12}}>
             <div style={{display:"flex",gap:5,width:"max-content",paddingBottom:4}}>
               {muscles.map(m=>(
@@ -1352,7 +1449,7 @@ function ProgramTab({ day, updateDay }) {
               ))}
             </div>
           </div>
-          {/* Equip + Level filter — wrap propre */}
+          {/* Equip + Level filter - wrap propre */}
           <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
             {equips.map(e=>(
               <button key={e} onClick={()=>setFilterEquip(e)}

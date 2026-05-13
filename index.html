@@ -1,5 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>GAINR PRO</title></head>
-  <body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#f97316"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-title" content="GainMode"/>
+    <meta name="description" content="GainMode - Suivi nutrition et sport pour prise de masse"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/icon-192.png"/>
+    <title>GainMode</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: #050510; color: #f1f5f9; font-family: system-ui, sans-serif; }
+      #splash {
+        position: fixed; inset: 0; background: #050510;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 9999; transition: opacity 0.5s;
+      }
+      #splash .logo { font-size: 48px; font-weight: 900; color: #f97316; letter-spacing: 4px; margin-bottom: 8px; }
+      #splash .tagline { font-size: 14px; color: #6b7280; letter-spacing: 2px; margin-bottom: 40px; }
+      #splash .bar-wrap { width: 160px; height: 4px; background: #1f2937; border-radius: 2px; overflow: hidden; }
+      #splash .bar { height: 100%; background: linear-gradient(90deg, #f97316, #fbbf24); border-radius: 2px; animation: load 1.4s ease forwards; }
+      @keyframes load { from { width: 0% } to { width: 100% } }
+    </style>
+  </head>
+  <body>
+    <!-- Splash screen -->
+    <div id="splash">
+      <div class="logo">GainMode</div>
+      <div class="tagline">BUILT DIFFERENT</div>
+      <div class="bar-wrap"><div class="bar"></div></div>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- PWA Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+      // Hide splash after 1.6s
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const s = document.getElementById('splash');
+          if (s) { s.style.opacity = '0'; setTimeout(() => s.remove(), 500); }
+        }, 1600);
+      });
+    </script>
+  </body>
 </html>
