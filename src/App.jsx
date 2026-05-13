@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from “react”;
 
-/* ═══════════════════════════════════════ PRISE DE POID ════════════════════════
-60kg → 70kg · Ectomorphe · Sans IA · Base données intégrée
-══════════════════════════════════════════════════════════════════════════ */
+/*  PRISE DE POID 
+60kg vers 70kg - Ectomorphe - Sans IA · Base données intégrée
+ */
 
 // ── Profil ──────────────────────────────────────────────────────────────────
 const PROFILE = {
