@@ -60,17 +60,17 @@ const FOOD_DB = [
   { id:106, name:"Steak haché 10%",            cal:196, protein:18,  carbs:0,   fat:13,  fiber:0, sugar:0, cat:"Viandes", portion:{name:"steak",g:130} },
   { id:107, name:"Steak haché 15%",            cal:235, protein:17,  carbs:0,   fat:18,  fiber:0, sugar:0, cat:"Viandes", portion:{name:"steak",g:130} },
   { id:108, name:"Steak haché 20%",            cal:275, protein:15,  carbs:0,   fat:24,  fiber:0, sugar:0, cat:"Viandes", portion:{name:"steak",g:130} },
-  { id:109, name:"Bœuf – entrecôte",           cal:222, protein:20,  carbs:0,   fat:15,  fiber:0, sugar:0, cat:"Viandes" },
-  { id:110, name:"Bœuf – rumsteak",            cal:158, protein:22,  carbs:0,   fat:7.5, fiber:0, sugar:0, cat:"Viandes" },
-  { id:111, name:"Bœuf – filet",               cal:144, protein:22,  carbs:0,   fat:6,   fiber:0, sugar:0, cat:"Viandes" },
-  { id:112, name:"Bœuf – basse côte",          cal:250, protein:18,  carbs:0,   fat:20,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:109, name:"Bœuf - entrecôte",           cal:222, protein:20,  carbs:0,   fat:15,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:110, name:"Bœuf - rumsteak",            cal:158, protein:22,  carbs:0,   fat:7.5, fiber:0, sugar:0, cat:"Viandes" },
+  { id:111, name:"Bœuf - filet",               cal:144, protein:22,  carbs:0,   fat:6,   fiber:0, sugar:0, cat:"Viandes" },
+  { id:112, name:"Bœuf - basse côte",          cal:250, protein:18,  carbs:0,   fat:20,  fiber:0, sugar:0, cat:"Viandes" },
   { id:113, name:"Bœuf haché (cuit)",          cal:240, protein:21,  carbs:0,   fat:17,  fiber:0, sugar:0, cat:"Viandes" },
-  { id:114, name:"Veau – escalope",            cal:106, protein:22,  carbs:0,   fat:1.9, fiber:0, sugar:0, cat:"Viandes" },
-  { id:115, name:"Veau – côte",                cal:180, protein:20,  carbs:0,   fat:11,  fiber:0, sugar:0, cat:"Viandes" },
-  { id:116, name:"Porc – filet mignon",        cal:147, protein:22,  carbs:0,   fat:6.2, fiber:0, sugar:0, cat:"Viandes" },
-  { id:117, name:"Porc – côtelette",           cal:200, protein:21,  carbs:0,   fat:13,  fiber:0, sugar:0, cat:"Viandes" },
-  { id:118, name:"Porc – épaule",              cal:195, protein:20,  carbs:0,   fat:12,  fiber:0, sugar:0, cat:"Viandes" },
-  { id:119, name:"Porc – travers (ribs)",      cal:280, protein:18,  carbs:0,   fat:23,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:114, name:"Veau - escalope",            cal:106, protein:22,  carbs:0,   fat:1.9, fiber:0, sugar:0, cat:"Viandes" },
+  { id:115, name:"Veau - côte",                cal:180, protein:20,  carbs:0,   fat:11,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:116, name:"Porc - filet mignon",        cal:147, protein:22,  carbs:0,   fat:6.2, fiber:0, sugar:0, cat:"Viandes" },
+  { id:117, name:"Porc - côtelette",           cal:200, protein:21,  carbs:0,   fat:13,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:118, name:"Porc - épaule",              cal:195, protein:20,  carbs:0,   fat:12,  fiber:0, sugar:0, cat:"Viandes" },
+  { id:119, name:"Porc - travers (ribs)",      cal:280, protein:18,  carbs:0,   fat:23,  fiber:0, sugar:0, cat:"Viandes" },
   { id:120, name:"Jambon blanc (tranche)",     cal:107, protein:17,  carbs:1.1, fat:3.5, fiber:0, sugar:0.8,cat:"Viandes", portion:{name:"tranche",g:40} },
   { id:121, name:"Jambon cru (tranche)",       cal:196, protein:18,  carbs:0.3, fat:13,  fiber:0, sugar:0,  cat:"Viandes", portion:{name:"tranche",g:25} },
   { id:122, name:"Lardons fumés (poêlés)",     cal:365, protein:13,  carbs:0,   fat:35,  fiber:0, sugar:0,  cat:"Viandes" },
@@ -81,9 +81,9 @@ const FOOD_DB = [
   { id:127, name:"Chorizo",                    cal:455, protein:24,  carbs:2,   fat:40,  fiber:0, sugar:0.5,cat:"Viandes" },
   { id:128, name:"Salami",                     cal:425, protein:22,  carbs:1.5, fat:37,  fiber:0, sugar:0.5,cat:"Viandes" },
   { id:129, name:"Bresaola",                   cal:151, protein:29,  carbs:0.5, fat:3,   fiber:0, sugar:0,  cat:"Viandes" },
-  { id:130, name:"Canard – filet",             cal:190, protein:25,  carbs:0,   fat:10,  fiber:0, sugar:0,  cat:"Viandes" },
-  { id:131, name:"Dinde – escalope",           cal:104, protein:23,  carbs:0,   fat:1,   fiber:0, sugar:0,  cat:"Viandes" },
-  { id:132, name:"Agneau – gigot",             cal:218, protein:22,  carbs:0,   fat:14,  fiber:0, sugar:0,  cat:"Viandes" },
+  { id:130, name:"Canard - filet",             cal:190, protein:25,  carbs:0,   fat:10,  fiber:0, sugar:0,  cat:"Viandes" },
+  { id:131, name:"Dinde - escalope",           cal:104, protein:23,  carbs:0,   fat:1,   fiber:0, sugar:0,  cat:"Viandes" },
+  { id:132, name:"Agneau - gigot",             cal:218, protein:22,  carbs:0,   fat:14,  fiber:0, sugar:0,  cat:"Viandes" },
   // -- ŒUFS & PRODUITS LAITIERS --------------------------------------------
   { id:200, name:"Œuf entier (moyen)",         cal:155, protein:13,  carbs:1.1, fat:11,  fiber:0, sugar:1.1, cat:"Œufs & Laitiers", portion:{name:"œuf",g:55} },
   { id:201, name:"Blanc d'œuf",                cal:52,  protein:11,  carbs:0.7, fat:0.2, fiber:0, sugar:0.7, cat:"Œufs & Laitiers", portion:{name:"blanc",g:35} },
@@ -217,7 +217,7 @@ const FOOD_DB = [
   { id:805, name:"Barre protéinée (60g)",      cal:350, protein:25,  carbs:35,  fat:8,   fiber:3,  sugar:18, cat:"Snacks & Sucreries", portion:{name:"barre",g:60} },
   { id:806, name:"Céréales Corn Flakes",       cal:357, protein:7.5, carbs:84,  fat:0.9, fiber:3,  sugar:8,  cat:"Snacks & Sucreries", portion:{name:"bol (40g)",g:40} },
   { id:807, name:"Céréales Miel Pops",         cal:380, protein:6,   carbs:84,  fat:1.5, fiber:2,  sugar:36, cat:"Snacks & Sucreries", portion:{name:"bol (40g)",g:40} },
-  { id:808, name:"Biscuits secs (Lu, BN…)",    cal:480, protein:7,   carbs:70,  fat:20,  fiber:2,  sugar:28, cat:"Snacks & Sucreries", portion:{name:"2 biscuits",g:20} },
+  { id:808, name:"Biscuits secs (Lu, BN...)",    cal:480, protein:7,   carbs:70,  fat:20,  fiber:2,  sugar:28, cat:"Snacks & Sucreries", portion:{name:"2 biscuits",g:20} },
   { id:809, name:"Croissant",                  cal:406, protein:8.2, carbs:46,  fat:21,  fiber:2,  sugar:10, cat:"Snacks & Sucreries", portion:{name:"croissant",g:60} },
   { id:810, name:"Pain au chocolat",           cal:390, protein:7,   carbs:44,  fat:20,  fiber:2,  sugar:15, cat:"Snacks & Sucreries", portion:{name:"pain au choc.",g:80} },
   { id:811, name:"Madeleine",                  cal:420, protein:7,   carbs:55,  fat:19,  fiber:1,  sugar:28, cat:"Snacks & Sucreries", portion:{name:"madeleine",g:35} },
@@ -248,19 +248,19 @@ const FOOD_DB = [
 // -- Programme sport (jour par jour, 6 semaines) -----------------------------
 const PROGRAM = [
   // SEMAINE 1
-  { week:1, day:1, type:"Haut", name:"Séance A – Haut du corps", exercises:[
+  { week:1, day:1, type:"Haut", name:"Séance A - Haut du corps", exercises:[
     { name:"Pompes sur genoux", sets:3, reps:"8-10", rest:90, cal:15, tip:"Dos droit, coudes à 45°" },
     { name:"Dips sur chaise", sets:3, reps:"8", rest:90, cal:12, tip:"Coudes près du corps" },
     { name:"Pompes larges", sets:2, reps:"8", rest:90, cal:10, tip:"Mains 2× largeur épaules" },
   ]},
   { week:1, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:1, day:3, type:"Bas", name:"Séance B – Bas du corps", exercises:[
+  { week:1, day:3, type:"Bas", name:"Séance B - Bas du corps", exercises:[
     { name:"Squats poids du corps", sets:3, reps:"15", rest:60, cal:18, tip:"Genoux dans l'axe pieds" },
     { name:"Fentes alternées", sets:3, reps:"10/jambe", rest:60, cal:20, tip:"Genou avant à 90°" },
     { name:"Mollets sur marche", sets:3, reps:"20", rest:45, cal:9, tip:"Amplitude complète" },
   ]},
   { week:1, day:4, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:1, day:5, type:"Full", name:"Séance C – Full body léger", exercises:[
+  { week:1, day:5, type:"Full", name:"Séance C - Full body léger", exercises:[
     { name:"Pompes classiques", sets:2, reps:"10", rest:75, cal:12, tip:"Corps planche parfaite" },
     { name:"Squats sautés", sets:2, reps:"10", rest:60, cal:20, tip:"Atterrissage silencieux" },
     { name:"Gainage planche", sets:3, reps:"20 sec", rest:45, cal:6, tip:"Ventre rentré, respire" },
@@ -268,19 +268,19 @@ const PROGRAM = [
   { week:1, day:6, type:"Repos", name:"Repos total", exercises:[] },
   { week:1, day:7, type:"Repos", name:"Repos total", exercises:[] },
   // SEMAINE 2
-  { week:2, day:1, type:"Haut", name:"Séance A – Haut du corps", exercises:[
+  { week:2, day:1, type:"Haut", name:"Séance A - Haut du corps", exercises:[
     { name:"Pompes classiques", sets:3, reps:"10-12", rest:75, cal:18, tip:"Corps planche parfaite" },
     { name:"Dips sur chaise", sets:3, reps:"10", rest:90, cal:14, tip:"Coudes près du corps" },
     { name:"Pompes déclinées", sets:2, reps:"8", rest:90, cal:14, tip:"Pieds sur chaise" },
   ]},
   { week:2, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:2, day:3, type:"Bas", name:"Séance B – Bas du corps", exercises:[
+  { week:2, day:3, type:"Bas", name:"Séance B - Bas du corps", exercises:[
     { name:"Squats sumo", sets:3, reps:"15", rest:60, cal:20, tip:"Pieds écartés, orteils dehors" },
     { name:"Fentes avant", sets:3, reps:"12/jambe", rest:60, cal:22, tip:"Garde le buste droit" },
     { name:"Pont fessier", sets:3, reps:"20", rest:45, cal:10, tip:"Serres les fessiers en haut" },
   ]},
   { week:2, day:4, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:2, day:5, type:"Full", name:"Séance C – Full body", exercises:[
+  { week:2, day:5, type:"Full", name:"Séance C - Full body", exercises:[
     { name:"Pompes diamant", sets:3, reps:"8-10", rest:75, cal:14, tip:"Pouces qui se touchent" },
     { name:"Squats sautés", sets:3, reps:"10", rest:60, cal:25, tip:"Atterrissage silencieux" },
     { name:"Mountain climbers", sets:3, reps:"20", rest:45, cal:18, tip:"Genoux vers la poitrine" },
@@ -288,14 +288,14 @@ const PROGRAM = [
   { week:2, day:6, type:"Repos", name:"Repos total", exercises:[] },
   { week:2, day:7, type:"Repos", name:"Repos total", exercises:[] },
   // SEMAINE 3
-  { week:3, day:1, type:"Push", name:"Séance Push – Pectoraux/Épaules/Triceps", exercises:[
+  { week:3, day:1, type:"Push", name:"Séance Push - Pectoraux/Épaules/Triceps", exercises:[
     { name:"Pompes classiques", sets:4, reps:"12", rest:75, cal:22, tip:"Corps planche parfaite" },
     { name:"Pike push-up", sets:3, reps:"10", rest:75, cal:16, tip:"Simule développé épaules" },
     { name:"Pompes déclinées", sets:3, reps:"10", rest:90, cal:18, tip:"Pieds sur chaise" },
     { name:"Dips sur chaise", sets:3, reps:"10-12", rest:90, cal:16, tip:"Triceps focus" },
   ]},
   { week:3, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:3, day:3, type:"Pull", name:"Séance Pull – Dos/Biceps", exercises:[
+  { week:3, day:3, type:"Pull", name:"Séance Pull - Dos/Biceps", exercises:[
     { name:"Tractions australiennes", sets:4, reps:"10-12", rest:90, cal:28, tip:"Table basse ou barre basse" },
     { name:"Rowing sur chaise", sets:3, reps:"12", rest:75, cal:14, tip:"Coudes collés au corps" },
     { name:"Planche dorsale", sets:3, reps:"20 sec", rest:45, cal:6, tip:"Fessiers serrés" },
@@ -348,10 +348,10 @@ const loadDB = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {};
 const saveDB = (d) => localStorage.setItem(KEY, JSON.stringify(d));
 
 const MEAL_SLOTS = [
-  { id:"breakfast", label:"Petit-déjeuner", icon:"☀️", color:"#f59e0b", time:"07:30" },
-  { id:"lunch",     label:"Déjeuner",       icon:"🍽️", color:"#10b981", time:"12:30" },
-  { id:"snack",     label:"Goûter",         icon:"🍊", color:"#8b5cf6", time:"16:30" },
-  { id:"dinner",    label:"Dîner",          icon:"#️⃣", color:"#ef4444", time:"19:30" },
+  { id:"breakfast", label:"Petit-déjeuner", icon:"", color:"#f59e0b", time:"07:30" },
+  { id:"lunch",     label:"Déjeuner",       icon:"", color:"#10b981", time:"12:30" },
+  { id:"snack",     label:"Goûter",         icon:"", color:"#8b5cf6", time:"16:30" },
+  { id:"dinner",    label:"Dîner",          icon:"", color:"#ef4444", time:"19:30" },
 ];
 
 const MACROS = [
@@ -504,7 +504,7 @@ export default function App() {
       {/* -- HEADER ------------------------------------------------------- */}
       <header style={S.header}>
         <div>
-          <div style={S.logo}>⚡ <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>PRISE DE POID</span> </div>
+          <div style={S.logo}> <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>PRISE DE POID</span> </div>
           <div style={S.headerSub}>60 kg -> 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
         </div>
         <div style={S.headerStats}>
@@ -516,10 +516,10 @@ export default function App() {
       {/* -- NAV ---------------------------------------------------------- */}
       <nav style={S.nav}>
         {[
-          {id:"journal",icon:"📓",label:"Journal"},
-          {id:"program",icon:"💪",label:"Programme"},
-          {id:"stats",  icon:"📊",label:"Stats"},
-          {id:"tips",   icon:"💡",label:"Conseils"},
+          {id:"journal",icon:"",label:"Journal"},
+          {id:"program",icon:"",label:"Programme"},
+          {id:"stats",  icon:"",label:"Stats"},
+          {id:"tips",   icon:"",label:"Conseils"},
         ].map(t=>(
           <button key={t.id} style={{...S.navBtn,...(tab===t.id?S.navActive:{})}} onClick={()=>setTab(t.id)}>
             <span style={{fontSize:18}}>{t.icon}</span>
@@ -535,22 +535,22 @@ export default function App() {
           <div style={S.page}>
             {/* Date nav */}
             <div style={S.dateRow}>
-              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()-1);setDate(d.toISOString().slice(0,10));}}>‹</button>
+              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()-1);setDate(d.toISOString().slice(0,10));}}><</button>
               <div style={{textAlign:"center"}}>
                 <input type="date" value={date} onChange={e=>setDate(e.target.value)} style={S.dateInput}/>
                 <div style={{fontSize:10,color:"#6b7280",marginTop:2}}>{fmtDate(date)}</div>
               </div>
-              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()+1);setDate(d.toISOString().slice(0,10));}}>›</button>
+              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()+1);setDate(d.toISOString().slice(0,10));}}>></button>
             </div>
 
             {/* Sommeil + poids */}
             <div style={S.rowCards}>
               {/* Sommeil */}
               <div style={{...S.miniCard,flex:1}}>
-                <div style={S.miniCardLabel}>🌙 Sommeil</div>
+                <div style={S.miniCardLabel}> Sommeil</div>
                 {day.sleep ? (
                   <div style={{...S.miniCardVal,color:day.sleep>=7?"#4ade80":"#f87171"}}>
-                    {day.sleep}h <button style={S.resetBtn} onClick={()=>updateDay({sleep:null})}>✕</button>
+                    {day.sleep}h <button style={S.resetBtn} onClick={()=>updateDay({sleep:null})}>x</button>
                   </div>
                 ) : (
                   <div style={S.inlineInput}>
@@ -563,10 +563,10 @@ export default function App() {
               </div>
               {/* Poids */}
               <div style={{...S.miniCard,flex:1}}>
-                <div style={S.miniCardLabel}>⚖️ Poids</div>
+                <div style={S.miniCardLabel}> Poids</div>
                 {day.weight ? (
                   <div style={{...S.miniCardVal,color:"#f97316"}}>
-                    {day.weight} kg <button style={S.resetBtn} onClick={()=>updateDay({weight:null})}>✕</button>
+                    {day.weight} kg <button style={S.resetBtn} onClick={()=>updateDay({weight:null})}>x</button>
                   </div>
                 ) : (
                   <div style={S.inlineInput}>
@@ -583,7 +583,7 @@ export default function App() {
             <div style={S.macroSummaryCard}>
               <div style={S.macroSummaryTitle}>
                 Résumé du jour
-                {exCalBurned>0&&<span style={S.exBadge}>🔥 +{exCalBurned} kcal sport</span>}
+                {exCalBurned>0&&<span style={S.exBadge}> +{exCalBurned} kcal sport</span>}
               </div>
               <div style={S.macroGrid}>
                 {MACROS.map(m=>{
@@ -605,7 +605,7 @@ export default function App() {
               <div style={{...S.remainBar,background: adjustedCal-dayTotals.cal>0?"#1a0a0020":"#0a1a0a20",borderColor: adjustedCal-dayTotals.cal>0?"#f97316":"#10b981"}}>
                 {adjustedCal-dayTotals.cal>0
                   ? <span>Il te reste <strong style={{color:"#f97316"}}>{adjustedCal-dayTotals.cal} kcal</strong> à manger aujourd'hui</span>
-                  : <span style={{color:"#4ade80"}}>🎉 Objectif calorique atteint !</span>
+                  : <span style={{color:"#4ade80"}}> Objectif calorique atteint !</span>
                 }
               </div>
             </div>
@@ -631,7 +631,7 @@ export default function App() {
                         <span style={{color:"#f59e0b",marginLeft:6}}>{slotTotal.carbs}g gluc</span>
                       </div>
                     </div>
-                    <span style={{color:"#6b7280",marginLeft:8,fontSize:18}}>{isOpen?"▲":"▼"}</span>
+                    <span style={{color:"#6b7280",marginLeft:8,fontSize:18}}>{isOpen?"^":"v"}</span>
                   </button>
 
                   {/* Items list */}
@@ -661,7 +661,7 @@ export default function App() {
                               <td style={{...S.itd,color:"#8b5cf6"}}>{item.fat}g</td>
                               <td style={{...S.itd,color:"#10b981"}}>{item.fiber}g</td>
                               <td style={S.itd}>
-                                <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>✕</button>
+                                <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>x</button>
                               </td>
                             </tr>
                           ))}
@@ -687,15 +687,15 @@ export default function App() {
                       {/* Toggle manual / DB */}
                       <div style={S.addToggle}>
                         <button style={{...S.toggleBtn,background:!manualEntry?"#f97316":"#1f2937",color:!manualEntry?"#fff":"#9ca3af"}}
-                          onClick={()=>setManualEntry(false)}>📚 Base de données</button>
+                          onClick={()=>setManualEntry(false)}> Base de données</button>
                         <button style={{...S.toggleBtn,background:manualEntry?"#f97316":"#1f2937",color:manualEntry?"#fff":"#9ca3af"}}
-                          onClick={()=>setManualEntry(true)}>✏️ Saisie manuelle</button>
+                          onClick={()=>setManualEntry(true)}> Saisie manuelle</button>
                       </div>
 
                       {!manualEntry ? (
                         <>
                           {/* Search */}
-                          <input placeholder="🔍 Rechercher un aliment..." value={search}
+                          <input placeholder=" Rechercher un aliment..." value={search}
                             onChange={e=>{setSearch(e.target.value);setSelectedFood(null);}}
                             style={S.searchInput}/>
                           {/* Category filter */}
@@ -725,7 +725,7 @@ export default function App() {
                           {/* Qty + add */}
                           {selectedFood&&(
                             <div style={S.qtyPanel}>
-                              <div style={S.qtyFoodName}>✓ {selectedFood.name}</div>
+                              <div style={S.qtyFoodName}>OK {selectedFood.name}</div>
                               <div style={S.qtyRow}>
                                 {/* Mode toggle */}
                                 <div style={S.qtyModeToggle}>
@@ -792,15 +792,15 @@ export default function App() {
             {/* Sport loggué aujourd'hui */}
             {(day.exercises||[]).length>0&&(
               <div style={S.exCard}>
-                <div style={S.exCardTitle}>💪 Sport aujourd'hui — {exCalBurned} kcal brûlées</div>
+                <div style={S.exCardTitle}> Sport aujourd'hui - {exCalBurned} kcal brûlées</div>
                 {(day.exercises||[]).map((e,i)=>(
                   <div key={i} style={S.exRow}>
                     <span style={{fontSize:13}}>{e.name}</span>
-                    <span style={{color:"#ef4444",fontWeight:700,fontSize:13}}>−{e.cal} kcal</span>
+                    <span style={{color:"#ef4444",fontWeight:700,fontSize:13}}>-{e.cal} kcal</span>
                     <button style={S.removeBtn} onClick={()=>{
                       const exercises=(day.exercises||[]).filter((_,idx)=>idx!==i);
                       updateDay({exercises});
-                    }}>✕</button>
+                    }}>x</button>
                   </div>
                 ))}
               </div>
@@ -864,7 +864,7 @@ export default function App() {
 
                 {programDay.exercises.length===0?(
                   <div style={S.restCard}>
-                    <div style={{fontSize:40}}>😴</div>
+                    <div style={{fontSize:40}}></div>
                     <div style={{fontSize:16,fontWeight:700,marginTop:8}}>Jour de repos</div>
                     <div style={{fontSize:12,color:"#6b7280",marginTop:4}}>La croissance musculaire se fait pendant le repos. Mange bien et dors 8h.</div>
                   </div>
@@ -885,7 +885,7 @@ export default function App() {
                           <tr key={i} style={{background:i%2===0?"#111827":"#0f172a"}}>
                             <td style={S.exTd}>
                               <div style={{fontWeight:600,fontSize:12}}>{ex.name}</div>
-                              <div style={{fontSize:10,color:"#f59e0b"}}>💡 {ex.tip}</div>
+                              <div style={{fontSize:10,color:"#f59e0b"}}> {ex.tip}</div>
                             </td>
                             <td style={{...S.exTd,textAlign:"center",color:"#f97316",fontWeight:700}}>{ex.sets}</td>
                             <td style={{...S.exTd,textAlign:"center",fontSize:12}}>{ex.reps}</td>
@@ -897,7 +897,7 @@ export default function App() {
                     </table>
                     <div style={{padding:"12px 14px"}}>
                       <button style={S.logBtn} onClick={logSession}>
-                        ✅ Logger cette séance (+{programDay.exercises.reduce((s,e)=>s+e.cal*e.sets,0)} kcal sur le journal)
+                        OK Logger cette séance (+{programDay.exercises.reduce((s,e)=>s+e.cal*e.sets,0)} kcal sur le journal)
                       </button>
                     </div>
                   </>
@@ -912,7 +912,7 @@ export default function App() {
           <div style={S.page}>
             {/* Weight chart */}
             <div style={S.chartCard}>
-              <div style={S.chartTitle}>📈 Évolution du poids</div>
+              <div style={S.chartTitle}> Évolution du poids</div>
               <div style={S.chartSubtitle}>{PROFILE.startWeight} kg -> objectif {PROFILE.targetWeight} kg</div>
               {weightPoints.length<2?(
                 <div style={S.chartEmpty}>Enregistre ton poids chaque matin pour voir le graphique apparaître ici.</div>
@@ -960,7 +960,7 @@ export default function App() {
 
             {/* Calories chart - last 14 days */}
             <div style={S.chartCard}>
-              <div style={S.chartTitle}>🔥 Calories — 14 derniers jours</div>
+              <div style={S.chartTitle}> Calories - 14 derniers jours</div>
               {(() => {
                 const calData = last14.map(d => {
                   const meals = db[d]?.meals||{};
@@ -994,7 +994,7 @@ export default function App() {
 
             {/* Tableau détaillé */}
             <div style={S.tableCard}>
-              <div style={S.chartTitle}>📋 Tableau détaillé</div>
+              <div style={S.chartTitle}> Tableau détaillé</div>
               <div style={{overflowX:"auto"}}>
                 <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
                   <thead>
@@ -1015,13 +1015,13 @@ export default function App() {
                           onClick={()=>{setDate(d);setTab("journal");}}>
                           <td style={{padding:"7px 6px",fontSize:11,whiteSpace:"nowrap"}}>{fmtShort(d)}</td>
                           <td style={{padding:"7px 6px",color:"#9ca3af"}}>{mealCount} alim.</td>
-                          <td style={{padding:"7px 6px",color:t.cal>=PROFILE.dailyCal*0.9?"#4ade80":"#f87171",fontWeight:700}}>{t.cal||"—"}</td>
-                          <td style={{padding:"7px 6px",color:"#ef4444"}}>{t.protein||"—"}g</td>
-                          <td style={{padding:"7px 6px",color:"#f59e0b"}}>{t.carbs||"—"}g</td>
-                          <td style={{padding:"7px 6px",color:"#8b5cf6"}}>{t.fat||"—"}g</td>
-                          <td style={{padding:"7px 6px",color:"#10b981"}}>{t.fiber||"—"}g</td>
-                          <td style={{padding:"7px 6px",color:"#f97316"}}>{entry.weight?`${entry.weight}kg`:"—"}</td>
-                          <td style={{padding:"7px 6px",color:entry.sleep>=7?"#4ade80":"#f87171"}}>{entry.sleep?`${entry.sleep}h`:"—"}</td>
+                          <td style={{padding:"7px 6px",color:t.cal>=PROFILE.dailyCal*0.9?"#4ade80":"#f87171",fontWeight:700}}>{t.cal||"-"}</td>
+                          <td style={{padding:"7px 6px",color:"#ef4444"}}>{t.protein||"-"}g</td>
+                          <td style={{padding:"7px 6px",color:"#f59e0b"}}>{t.carbs||"-"}g</td>
+                          <td style={{padding:"7px 6px",color:"#8b5cf6"}}>{t.fat||"-"}g</td>
+                          <td style={{padding:"7px 6px",color:"#10b981"}}>{t.fiber||"-"}g</td>
+                          <td style={{padding:"7px 6px",color:"#f97316"}}>{entry.weight?`${entry.weight}kg`:"-"}</td>
+                          <td style={{padding:"7px 6px",color:entry.sleep>=7?"#4ade80":"#f87171"}}>{entry.sleep?`${entry.sleep}h`:"-"}</td>
                         </tr>
                       );
                     })}
@@ -1036,19 +1036,19 @@ export default function App() {
         {tab==="tips"&&(
           <div style={S.page}>
             {[
-              { icon:"🧬", title:"Ton profil ectomorphe", color:"#f97316", items:[
-                "Tu brûles plus de calories au repos que la moyenne — c'est génétique, pas une fatalité.",
+              { icon:"", title:"Ton profil ectomorphe", color:"#f97316", items:[
+                "Tu brûles plus de calories au repos que la moyenne - c'est génétique, pas une fatalité.",
                 "Ton corps résiste à la prise de poids -> il faut être agressif sur les calories CHAQUE jour.",
                 "Tu prendras peu de gras, surtout du muscle si tu t'alimentes et t'entraînes correctement.",
                 "La régularité est clé : une journée à 2 repas peut effacer 2 jours de progrès.",
               ]},
-              { icon:"🍽️", title:"Passer de 2 à 4 repas (priorité absolue)", color:"#10b981", items:[
+              { icon:"", title:"Passer de 2 à 4 repas (priorité absolue)", color:"#10b981", items:[
                 "Tu faisais 2 repas/jour -> c'est la principale raison pour laquelle tu ne grossissais pas.",
                 "Programme des alarmes pour chaque repas : 7h30, 12h30, 16h30, 19h30.",
                 "Si tu n'as pas faim : remplace par un shake (lait entier 300ml + banane + 50g avoine + beurre de cacahuète = 650 kcal en 2 min).",
                 "Ne saute jamais le petit-déjeuner : le corps est en mode catabolisme (dégradation) après 8h de jeûne.",
               ]},
-              { icon:"💰", title:"Atteindre 3400 kcal avec 15-40€/semaine", color:"#3b82f6", items:[
+              { icon:"", title:"Atteindre 3400 kcal avec 15-40€/semaine", color:"#3b82f6", items:[
                 "Riz + poulet + œufs = la sainte trinité budget. Achète en grande quantité.",
                 "Beurre de cacahuète : 600 kcal pour ~1€, protéines + graisses saines. Mange-en partout.",
                 "Lait entier : 2× plus calorique que le demi-écrémé, même prix. Vise 500ml/jour.",
@@ -1056,21 +1056,21 @@ export default function App() {
                 "Viande hachée 15% : 3× moins chère que le filet, plus calorique, autant de protéines.",
                 "Bananes : 89 kcal pièce, ~0,20€. Idéal avant/après sport et au goûter.",
               ]},
-              { icon:"💪", title:"Sport maison sans matériel", color:"#8b5cf6", items:[
+              { icon:"", title:"Sport maison sans matériel", color:"#8b5cf6", items:[
                 "Priorité aux exercices composés (pompes, squats, dips) sur des séries de 8-12 reps.",
                 "Évite le cardio long (footing >20 min) : tu brûles les calories accumulées laborieusement.",
-                "Repose 48h entre deux séances du même groupe musculaire — la croissance se fait au repos.",
+                "Repose 48h entre deux séances du même groupe musculaire - la croissance se fait au repos.",
                 "Mange dans les 30 min après la séance : œufs + pain, ou yaourt grec + banane.",
                 "Dors 8h minimum : l'hormone de croissance (GH) est sécrétée à 70% pendant le sommeil profond.",
               ]},
-              { icon:"🌙", title:"Sommeil irrégulier -> à corriger en priorité", color:"#ec4899", items:[
+              { icon:"", title:"Sommeil irrégulier -> à corriger en priorité", color:"#ec4899", items:[
                 "Sans 7-8h de sommeil, ton corps sécrète du cortisol qui détruit le muscle. C'est anti-masse.",
                 "Couche-toi et lève-toi à heures fixes même le weekend (régulation de l'horloge circadienne).",
                 "Mange quelque chose de protéiné avant de dormir : jambon, fromage blanc, yaourt grec.",
                 "Éteins les écrans 1h avant de dormir : la lumière bleue bloque la mélatonine.",
               ]},
-              { icon:"📏", title:"Comment peser et suivre tes progrès", color:"#f59e0b", items:[
-                "Pèse-toi chaque lundi matin, à jeun, après les toilettes, avant de manger — même heure, mêmes conditions.",
+              { icon:"", title:"Comment peser et suivre tes progrès", color:"#f59e0b", items:[
+                "Pèse-toi chaque lundi matin, à jeun, après les toilettes, avant de manger - même heure, mêmes conditions.",
                 "Pas plus d'une fois par semaine : le poids fluctue de 0,5 à 2 kg dans la journée (eau, repas).",
                 "Si tu ne grossis pas en 2 semaines : ajoute 200 kcal/jour jusqu'à ce que ça monte.",
                 "Objectif réaliste ectomorphe : 0,5 à 1 kg par mois (surtout muscle, peu de gras).",
@@ -1081,7 +1081,7 @@ export default function App() {
                 <div style={{...S.tipTitle,color:s.color}}>{s.icon} {s.title}</div>
                 {s.items.map((item,j)=>(
                   <div key={j} style={S.tipItem}>
-                    <span style={{color:s.color,marginRight:8,flexShrink:0}}>▸</span>{item}
+                    <span style={{color:s.color,marginRight:8,flexShrink:0}}>></span>{item}
                   </div>
                 ))}
               </div>
