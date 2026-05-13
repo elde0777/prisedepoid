@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 /* PRISE DE POID
       60kg vers 70kg - Ectomorphe - Sans IA
