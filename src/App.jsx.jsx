@@ -1339,18 +1339,21 @@ function ProgramTab({ day, updateDay }) {
 
       {activeTab==="exercises" && (
         <>
-          {/* Filters */}
-          <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:2}}>
-            {muscles.map(m=>(
-              <button key={m} onClick={()=>setFilterMuscle(m)}
-                style={{border:"none",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700,whiteSpace:"nowrap",
-                  background:filterMuscle===m?(muscleColor[m]||"#f97316"):"#1f2937",
-                  color:filterMuscle===m?"#fff":"#9ca3af"}}>
-                {m}
-              </button>
-            ))}
+          {/* Muscles filter — scroll horizontal contenu, pas la page */}
+          <div style={{overflowX:"auto",WebkitOverflowScrolling:"touch",marginLeft:-12,marginRight:-12,paddingLeft:12,paddingRight:12}}>
+            <div style={{display:"flex",gap:5,width:"max-content",paddingBottom:4}}>
+              {muscles.map(m=>(
+                <button key={m} onClick={()=>setFilterMuscle(m)}
+                  style={{border:"none",borderRadius:6,padding:"6px 11px",fontSize:11,fontWeight:700,whiteSpace:"nowrap",flexShrink:0,
+                    background:filterMuscle===m?(muscleColor[m]||"#f97316"):"#1f2937",
+                    color:filterMuscle===m?"#fff":"#9ca3af"}}>
+                  {m}
+                </button>
+              ))}
+            </div>
           </div>
-          <div style={{display:"flex",gap:5}}>
+          {/* Equip + Level filter — wrap propre */}
+          <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
             {equips.map(e=>(
               <button key={e} onClick={()=>setFilterEquip(e)}
                 style={{border:"none",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700,
