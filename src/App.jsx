@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 /* PRISE DE POID
       60kg vers 70kg - Ectomorphe - Sans IA
@@ -344,7 +344,7 @@ const todayStr = () => new Date().toISOString().slice(0, 10);
 const fmtDate  = (d) => new Date(d + "T12:00:00").toLocaleDateString("fr-FR", { weekday:"long", day:"numeric", month:"long" });
 const fmtShort = (d) => new Date(d + "T12:00:00").toLocaleDateString("fr-FR", { day:"numeric", month:"short" });
 const KEY = "prisedepoid_v1";
-const loadDB = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+const loadDB = () => { try { const d = localStorage.getItem(KEY); return d ? JSON.parse(d) : {}; } catch { return {}; } };
 const saveDB = (d) => localStorage.setItem(KEY, JSON.stringify(d));
 
 const MEAL_SLOTS = [
@@ -505,7 +505,7 @@ export default function App() {
       <header style={S.header}>
         <div>
           <div style={S.logo}> <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>PRISE DE POID</span> </div>
-          <div style={S.headerSub}>60 kg -> 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
+          <div style={S.headerSub}>60 kg vers 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
         </div>
         <div style={S.headerStats}>
           <MacroRing value={dayTotals.cal} target={adjustedCal} color="#f97316" label="kcal" />
@@ -913,7 +913,7 @@ export default function App() {
             {/* Weight chart */}
             <div style={S.chartCard}>
               <div style={S.chartTitle}> Évolution du poids</div>
-              <div style={S.chartSubtitle}>{PROFILE.startWeight} kg -> objectif {PROFILE.targetWeight} kg</div>
+              <div style={S.chartSubtitle}>{PROFILE.startWeight} kg — objectif {PROFILE.targetWeight} kg</div>
               {weightPoints.length<2?(
                 <div style={S.chartEmpty}>Enregistre ton poids chaque matin pour voir le graphique apparaître ici.</div>
               ):(()=>{
