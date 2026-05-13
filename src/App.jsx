@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-/* PRISE DE POID
+/* GainMode
       60kg vers 70kg - Ectomorphe - Sans IA
 */
 
@@ -361,98 +361,93 @@ const MENUS_DB = [
   { id:320, slot:"dinner", name:"Porc-semoule",             cal:860, protein:48, carbs:88, fat:25, desc:"200g filet porc + 150g semoule + sauce tomate + légumes", tags:["varié","masse"] },
 ];
 
-// -- Programme sport (jour par jour, 6 semaines) -----------------------------
+// -- Bibliothèque d'exercices -----------------------------------------------
+const EXERCISES_DB = [
+  // PECS
+  { id:"e1",  name:"Pompes classiques",        muscle:"Pecs",     equipment:"Corps",    sets:4, reps:"10-12", rest:75,  cal:22, level:"debutant",     tip:"Corps planche, coudes a 45 degres" },
+  { id:"e2",  name:"Pompes larges",            muscle:"Pecs",     equipment:"Corps",    sets:4, reps:"10-12", rest:75,  cal:20, level:"debutant",     tip:"Mains 2x largeur epaules, etire bien les pecs" },
+  { id:"e3",  name:"Pompes déclinées",         muscle:"Pecs",     equipment:"Corps",    sets:4, reps:"10",    rest:90,  cal:24, level:"intermediaire",tip:"Pieds sur chaise, angle 30 degres" },
+  { id:"e4",  name:"Pompes inclinées",         muscle:"Pecs",     equipment:"Corps",    sets:3, reps:"12",    rest:75,  cal:18, level:"debutant",     tip:"Mains sur chaise, bas des pecs" },
+  { id:"e5",  name:"Pompes diamant",           muscle:"Triceps",  equipment:"Corps",    sets:3, reps:"8-10",  rest:75,  cal:16, level:"intermediaire",tip:"Pouces et index forment un diamant" },
+  { id:"e6",  name:"Pompes explosives",        muscle:"Pecs",     equipment:"Corps",    sets:4, reps:"8",     rest:90,  cal:28, level:"avance",       tip:"Mains decollent du sol, force maximale" },
+  { id:"e7",  name:"Pompes archer",            muscle:"Pecs",     equipment:"Corps",    sets:3, reps:"6/cote",rest:90,  cal:26, level:"avance",       tip:"Bras tendu sur le cote, charge le pec" },
+  // EPAULES
+  { id:"e8",  name:"Pike push-up",             muscle:"Epaules",  equipment:"Corps",    sets:4, reps:"10",    rest:75,  cal:18, level:"debutant",     tip:"Hanches hautes, tete vers le sol" },
+  { id:"e9",  name:"Elévations latérales",     muscle:"Epaules",  equipment:"Halteres", sets:4, reps:"12-15", rest:60,  cal:14, level:"debutant",     tip:"Bras tendus, monter jusqu'a epaule" },
+  { id:"e10", name:"Développé militaire",      muscle:"Epaules",  equipment:"Halteres", sets:4, reps:"10-12", rest:90,  cal:20, level:"debutant",     tip:"Pousser vers le haut, coudes avant" },
+  { id:"e11", name:"Elévations frontales",     muscle:"Epaules",  equipment:"Halteres", sets:3, reps:"12",    rest:60,  cal:12, level:"debutant",     tip:"Bras tendus vers l'avant, angle 90 degres" },
+  { id:"e12", name:"Oiseau (deltoide post)",   muscle:"Epaules",  equipment:"Halteres", sets:3, reps:"12-15", rest:60,  cal:12, level:"intermediaire",tip:"Penche en avant, bras s'ouvrent" },
+  { id:"e13", name:"Handstand hold (mur)",     muscle:"Epaules",  equipment:"Corps",    sets:3, reps:"20sec", rest:90,  cal:10, level:"avance",       tip:"Poignets chauds, ventre rentre" },
+  // TRICEPS
+  { id:"e14", name:"Dips sur chaise",          muscle:"Triceps",  equipment:"Corps",    sets:4, reps:"12-15", rest:75,  cal:18, level:"debutant",     tip:"Coudes pres du corps, descendre bas" },
+  { id:"e15", name:"Extension triceps",        muscle:"Triceps",  equipment:"Halteres", sets:3, reps:"12-15", rest:60,  cal:14, level:"debutant",     tip:"Coude fixe, etendre bras vers le haut" },
+  { id:"e16", name:"Kickback triceps",         muscle:"Triceps",  equipment:"Halteres", sets:3, reps:"12-15", rest:60,  cal:12, level:"debutant",     tip:"Bras parallele au sol, etendre" },
+  { id:"e17", name:"Dips lesté sac",           muscle:"Triceps",  equipment:"Corps",    sets:4, reps:"10-12", rest:90,  cal:22, level:"intermediaire",tip:"Sac sur les cuisses pour ajouter charge" },
+  // DOS / BICEPS
+  { id:"e18", name:"Tractions australiennes",  muscle:"Dos",      equipment:"Corps",    sets:4, reps:"10-12", rest:90,  cal:28, level:"debutant",     tip:"Table basse ou barre basse, corps droit" },
+  { id:"e19", name:"Superman",                 muscle:"Dos",      equipment:"Corps",    sets:3, reps:"15",    rest:45,  cal:8,  level:"debutant",     tip:"Ventre au sol, lever bras et jambes" },
+  { id:"e20", name:"Rowing halterees",         muscle:"Dos",      equipment:"Halteres", sets:4, reps:"10-12", rest:75,  cal:18, level:"debutant",     tip:"Penche avant, tirer vers la hanche" },
+  { id:"e21", name:"Curl biceps",              muscle:"Biceps",   equipment:"Halteres", sets:4, reps:"12-15", rest:60,  cal:14, level:"debutant",     tip:"Coudes fixes, pleine amplitude" },
+  { id:"e22", name:"Curl marteau",             muscle:"Biceps",   equipment:"Halteres", sets:3, reps:"12",    rest:60,  cal:12, level:"debutant",     tip:"Poignets neutres, contraction maximale" },
+  { id:"e23", name:"Tractions (barre porte)",  muscle:"Dos",      equipment:"Corps",    sets:4, reps:"5-8",   rest:120, cal:32, level:"avance",       tip:"Grip large pour le dos, barre de porte" },
+  { id:"e24", name:"Isometrie porte (dos)",    muscle:"Dos",      equipment:"Corps",    sets:3, reps:"20sec", rest:60,  cal:8,  level:"debutant",     tip:"Tirer la poignee de porte, dos droit" },
+  // JAMBES / FESSIERS
+  { id:"e25", name:"Squats poids du corps",    muscle:"Jambes",   equipment:"Corps",    sets:4, reps:"15-20", rest:60,  cal:22, level:"debutant",     tip:"Genoux dans l'axe pieds, descente lente" },
+  { id:"e26", name:"Fentes alternées",         muscle:"Jambes",   equipment:"Corps",    sets:4, reps:"12/jambe",rest:60,cal:25, level:"debutant",     tip:"Genou avant a 90 degres, dos droit" },
+  { id:"e27", name:"Squats bulgares",          muscle:"Jambes",   equipment:"Corps",    sets:4, reps:"10/jambe",rest:90,cal:30, level:"intermediaire",tip:"Pied arriere sur chaise, genoux aligne" },
+  { id:"e28", name:"Pont fessier",             muscle:"Fessiers", equipment:"Corps",    sets:4, reps:"20",    rest:45,  cal:12, level:"debutant",     tip:"Serrer fessiers en haut, tenir 1 sec" },
+  { id:"e29", name:"Pistol squat assisté",     muscle:"Jambes",   equipment:"Corps",    sets:3, reps:"6/jambe",rest:90,cal:28, level:"avance",       tip:"Tenir un montant, jambe avant" },
+  { id:"e30", name:"Squats goblet",            muscle:"Jambes",   equipment:"Halteres", sets:4, reps:"12-15", rest:75,  cal:26, level:"debutant",     tip:"Haltere contre poitrine, profondeur max" },
+  { id:"e31", name:"Fentes avec halteres",     muscle:"Jambes",   equipment:"Halteres", sets:4, reps:"10/jambe",rest:75,cal:28, level:"debutant",     tip:"Halteres sur les cotes, dos droit" },
+  { id:"e32", name:"Mollets debout",           muscle:"Mollets",  equipment:"Corps",    sets:4, reps:"20-25", rest:45,  cal:10, level:"debutant",     tip:"Amplitude complete, pause en haut" },
+  { id:"e33", name:"Fentes sautées",           muscle:"Jambes",   equipment:"Corps",    sets:3, reps:"8/jambe",rest:75,cal:32, level:"intermediaire",tip:"Atterrissage souple, explosivite max" },
+  // ABDOS / CORE
+  { id:"e34", name:"Gainage planche",          muscle:"Abdos",    equipment:"Corps",    sets:3, reps:"30-45sec",rest:45,cal:8,  level:"debutant",     tip:"Ventre rentre, fessiers serres" },
+  { id:"e35", name:"Crunchs",                  muscle:"Abdos",    equipment:"Corps",    sets:3, reps:"20",    rest:45,  cal:8,  level:"debutant",     tip:"Pas de coup de nuque, contraction abdos" },
+  { id:"e36", name:"Mountain climbers",        muscle:"Abdos",    equipment:"Corps",    sets:3, reps:"20",    rest:45,  cal:20, level:"intermediaire",tip:"Rapide, genoux vers poitrine" },
+  { id:"e37", name:"Gainage lateral",          muscle:"Abdos",    equipment:"Corps",    sets:3, reps:"25sec/cote",rest:45,cal:8,level:"intermediaire",tip:"Hanche ne touche pas le sol" },
+  { id:"e38", name:"Russian twist",            muscle:"Abdos",    equipment:"Halteres", sets:3, reps:"20",    rest:45,  cal:12, level:"intermediaire",tip:"Pieds leves, rotation max de chaque cote" },
+  { id:"e39", name:"Leg raise",                muscle:"Abdos",    equipment:"Corps",    sets:3, reps:"15",    rest:45,  cal:10, level:"intermediaire",tip:"Jambes tendues, descente controlee" },
+  // CARDIO / FULL BODY
+  { id:"e40", name:"Burpees",                  muscle:"Full Body",equipment:"Corps",    sets:3, reps:"10",    rest:90,  cal:40, level:"intermediaire",tip:"Controle le mouvement, qualite > vitesse" },
+  { id:"e41", name:"Squat sauté",              muscle:"Full Body",equipment:"Corps",    sets:3, reps:"12",    rest:75,  cal:30, level:"intermediaire",tip:"Atterrissage souple, genoux flechi" },
+  { id:"e42", name:"Jumping jacks",            muscle:"Full Body",equipment:"Corps",    sets:3, reps:"30",    rest:45,  cal:18, level:"debutant",     tip:"Rythme soutenu, bras tendus" },
+];
+
+// -- Programme 4 jours/semaine FOCUS PECS/EPAULES/TRICEPS -------------------
 const PROGRAM = [
   // SEMAINE 1
-  { week:1, day:1, type:"Haut", name:"Séance A - Haut du corps", exercises:[
-    { name:"Pompes sur genoux", sets:3, reps:"8-10", rest:90, cal:15, tip:"Dos droit, coudes à 45°" },
-    { name:"Dips sur chaise", sets:3, reps:"8", rest:90, cal:12, tip:"Coudes près du corps" },
-    { name:"Pompes larges", sets:2, reps:"8", rest:90, cal:10, tip:"Mains 2x largeur épaules" },
-  ]},
-  { week:1, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:1, day:3, type:"Bas", name:"Séance B - Bas du corps", exercises:[
-    { name:"Squats poids du corps", sets:3, reps:"15", rest:60, cal:18, tip:"Genoux dans l'axe pieds" },
-    { name:"Fentes alternées", sets:3, reps:"10/jambe", rest:60, cal:20, tip:"Genou avant à 90°" },
-    { name:"Mollets sur marche", sets:3, reps:"20", rest:45, cal:9, tip:"Amplitude complète" },
-  ]},
-  { week:1, day:4, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:1, day:5, type:"Full", name:"Séance C - Full body léger", exercises:[
-    { name:"Pompes classiques", sets:2, reps:"10", rest:75, cal:12, tip:"Corps planche parfaite" },
-    { name:"Squats sautés", sets:2, reps:"10", rest:60, cal:20, tip:"Atterrissage silencieux" },
-    { name:"Gainage planche", sets:3, reps:"20 sec", rest:45, cal:6, tip:"Ventre rentré, respire" },
-  ]},
-  { week:1, day:6, type:"Repos", name:"Repos total", exercises:[] },
-  { week:1, day:7, type:"Repos", name:"Repos total", exercises:[] },
+  { week:1, day:1, type:"Push", name:"Jour 1 - Push (Pecs + Epaules + Triceps)", exIds:["e1","e2","e8","e14","e10"] },
+  { week:1, day:2, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:1, day:3, type:"Pull", name:"Jour 2 - Pull (Dos + Biceps)", exIds:["e18","e19","e20","e21","e24"] },
+  { week:1, day:4, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:1, day:5, type:"Legs", name:"Jour 3 - Jambes + Abdos", exIds:["e25","e26","e28","e32","e34","e35"] },
+  { week:1, day:6, type:"Repos", name:"Repos total", exIds:[] },
+  { week:1, day:7, type:"Full", name:"Jour 4 - Full Body + Halteres", exIds:["e3","e9","e15","e30","e31","e38"] },
   // SEMAINE 2
-  { week:2, day:1, type:"Haut", name:"Séance A - Haut du corps", exercises:[
-    { name:"Pompes classiques", sets:3, reps:"10-12", rest:75, cal:18, tip:"Corps planche parfaite" },
-    { name:"Dips sur chaise", sets:3, reps:"10", rest:90, cal:14, tip:"Coudes près du corps" },
-    { name:"Pompes déclinées", sets:2, reps:"8", rest:90, cal:14, tip:"Pieds sur chaise" },
-  ]},
-  { week:2, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:2, day:3, type:"Bas", name:"Séance B - Bas du corps", exercises:[
-    { name:"Squats sumo", sets:3, reps:"15", rest:60, cal:20, tip:"Pieds écartés, orteils dehors" },
-    { name:"Fentes avant", sets:3, reps:"12/jambe", rest:60, cal:22, tip:"Garde le buste droit" },
-    { name:"Pont fessier", sets:3, reps:"20", rest:45, cal:10, tip:"Serres les fessiers en haut" },
-  ]},
-  { week:2, day:4, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:2, day:5, type:"Full", name:"Séance C - Full body", exercises:[
-    { name:"Pompes diamant", sets:3, reps:"8-10", rest:75, cal:14, tip:"Pouces qui se touchent" },
-    { name:"Squats sautés", sets:3, reps:"10", rest:60, cal:25, tip:"Atterrissage silencieux" },
-    { name:"Mountain climbers", sets:3, reps:"20", rest:45, cal:18, tip:"Genoux vers la poitrine" },
-  ]},
-  { week:2, day:6, type:"Repos", name:"Repos total", exercises:[] },
-  { week:2, day:7, type:"Repos", name:"Repos total", exercises:[] },
+  { week:2, day:1, type:"Push", name:"Jour 1 - Push intensif", exIds:["e1","e5","e10","e11","e14","e15"] },
+  { week:2, day:2, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:2, day:3, type:"Pull", name:"Jour 2 - Pull + Biceps", exIds:["e18","e20","e21","e22","e19"] },
+  { week:2, day:4, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:2, day:5, type:"Legs", name:"Jour 3 - Jambes halteres", exIds:["e27","e30","e31","e28","e32","e34"] },
+  { week:2, day:6, type:"Repos", name:"Repos total", exIds:[] },
+  { week:2, day:7, type:"Full", name:"Jour 4 - Circuit complet", exIds:["e6","e8","e12","e16","e33","e36"] },
   // SEMAINE 3
-  { week:3, day:1, type:"Push", name:"Séance Push - Pectoraux/Épaules/Triceps", exercises:[
-    { name:"Pompes classiques", sets:4, reps:"12", rest:75, cal:22, tip:"Corps planche parfaite" },
-    { name:"Pike push-up", sets:3, reps:"10", rest:75, cal:16, tip:"Simule développé épaules" },
-    { name:"Pompes déclinées", sets:3, reps:"10", rest:90, cal:18, tip:"Pieds sur chaise" },
-    { name:"Dips sur chaise", sets:3, reps:"10-12", rest:90, cal:16, tip:"Triceps focus" },
-  ]},
-  { week:3, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:3, day:3, type:"Pull", name:"Séance Pull - Dos/Biceps", exercises:[
-    { name:"Tractions australiennes", sets:4, reps:"10-12", rest:90, cal:28, tip:"Table basse ou barre basse" },
-    { name:"Rowing sur chaise", sets:3, reps:"12", rest:75, cal:14, tip:"Coudes collés au corps" },
-    { name:"Planche dorsale", sets:3, reps:"20 sec", rest:45, cal:6, tip:"Fessiers serrés" },
-  ]},
-  { week:3, day:4, type:"Jambes", name:"Séance Jambes", exercises:[
-    { name:"Squats bulgares", sets:3, reps:"10/jambe", rest:90, cal:28, tip:"Pied arrière sur chaise" },
-    { name:"Fentes sautées", sets:3, reps:"8/jambe", rest:75, cal:30, tip:"Explosivité max" },
-    { name:"Mollets 1 jambe", sets:3, reps:"15/jambe", rest:45, cal:10, tip:"Amplitude complète" },
-  ]},
-  { week:3, day:5, type:"Full", name:"Séance Full body cardio", exercises:[
-    { name:"Burpees", sets:3, reps:"8", rest:90, cal:35, tip:"Contrôle le mouvement" },
-    { name:"Mountain climbers", sets:3, reps:"20", rest:45, cal:18, tip:"Cadence soutenue" },
-    { name:"Gainage latéral", sets:3, reps:"20 sec/côté", rest:45, cal:8, tip:"Hanche ne touche pas" },
-  ]},
-  { week:3, day:6, type:"Repos", name:"Repos total", exercises:[] },
-  { week:3, day:7, type:"Repos", name:"Repos total", exercises:[] },
+  { week:3, day:1, type:"Push", name:"Jour 1 - Push force", exIds:["e1","e3","e8","e10","e14","e17"] },
+  { week:3, day:2, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:3, day:3, type:"Pull", name:"Jour 2 - Pull lourd", exIds:["e18","e20","e21","e22","e23"] },
+  { week:3, day:4, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:3, day:5, type:"Legs", name:"Jour 3 - Jambes avancé", exIds:["e27","e29","e31","e28","e33","e34","e37"] },
+  { week:3, day:6, type:"Repos", name:"Repos total", exIds:[] },
+  { week:3, day:7, type:"Full", name:"Jour 4 - Full + Core", exIds:["e6","e9","e13","e16","e30","e38","e39"] },
   // SEMAINE 4
-  { week:4, day:1, type:"Push", name:"Séance Push intensif", exercises:[
-    { name:"Pompes explosives", sets:4, reps:"8", rest:90, cal:26, tip:"Mains décollent du sol" },
-    { name:"Pompes déclinées", sets:4, reps:"12", rest:90, cal:22, tip:"Pieds haut sur chaise" },
-    { name:"Pike push-up", sets:3, reps:"12", rest:75, cal:18, tip:"Amplitude max" },
-    { name:"Pompes diamant", sets:3, reps:"10", rest:75, cal:16, tip:"Triceps complet" },
-  ]},
-  { week:4, day:2, type:"Repos", name:"Repos actif", exercises:[] },
-  { week:4, day:3, type:"Pull", name:"Séance Pull intensif", exercises:[
-    { name:"Tractions australiennes", sets:5, reps:"12", rest:90, cal:34, tip:"Serrez les omoplates" },
-    { name:"Isométrie porte (dos)", sets:3, reps:"20 sec", rest:60, cal:10, tip:"Poignée de porte, tirez" },
-    { name:"Superman", sets:3, reps:"15", rest:45, cal:8, tip:"Maintiens 1 sec en haut" },
-  ]},
-  { week:4, day:4, type:"Jambes", name:"Séance Jambes intensif", exercises:[
-    { name:"Pistol squat assisté", sets:3, reps:"8/jambe", rest:90, cal:30, tip:"Tenez un montant" },
-    { name:"Squats sautés (séries)", sets:4, reps:"12", rest:60, cal:40, tip:"Atterrissage souple" },
-    { name:"Nordic curl partiel", sets:3, reps:"5-6", rest:120, cal:20, tip:"Ischio-jambiers max" },
-  ]},
-  { week:4, day:5, type:"Full", name:"Séance décharge", exercises:[
-    { name:"Pompes classiques", sets:3, reps:"10", rest:75, cal:14, tip:"Technique parfaite" },
-    { name:"Squats poids du corps", sets:3, reps:"15", rest:60, cal:18, tip:"Descente lente (3 sec)" },
-    { name:"Gainage planche", sets:3, reps:"30 sec", rest:45, cal:9, tip:"Progression +10 sec" },
-  ]},
-  { week:4, day:6, type:"Repos", name:"Repos total", exercises:[] },
-  { week:4, day:7, type:"Repos", name:"Repos total", exercises:[] },
+  { week:4, day:1, type:"Push", name:"Jour 1 - Push max", exIds:["e6","e7","e10","e12","e5","e17"] },
+  { week:4, day:2, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:4, day:3, type:"Pull", name:"Jour 2 - Pull max", exIds:["e23","e18","e20","e21","e22"] },
+  { week:4, day:4, type:"Repos", name:"Repos actif", exIds:[] },
+  { week:4, day:5, type:"Legs", name:"Jour 3 - Jambes max", exIds:["e29","e27","e31","e33","e28","e34","e39"] },
+  { week:4, day:6, type:"Repos", name:"Repos total", exIds:[] },
+  { week:4, day:7, type:"Full", name:"Jour 4 - Decharge", exIds:["e1","e9","e21","e25","e28","e34"] },
 ];
 
 // -- Helpers -----------------------------------------------------------------
@@ -577,6 +572,21 @@ export default function App() {
     updateDay({ meals });
   };
 
+  const editItemQty = (mealId, itemId, newGrams) => {
+    const meals = { ...(day.meals||{}) };
+    meals[mealId] = (meals[mealId]||[]).map(item => {
+      if (item.id !== itemId) return item;
+      const food = FOOD_DB.find(f => f.name === item.name);
+      if (!food) return { ...item, grams: newGrams, displayQty: newGrams+"g" };
+      const macros = calcFoodMacros(food, newGrams);
+      return { ...item, grams: newGrams, displayQty: newGrams+"g", ...macros };
+    });
+    updateDay({ meals });
+  };
+
+  const [editingItem, setEditingItem] = React.useState(null); // {mealId, itemId}
+  const [editGrams, setEditGrams] = React.useState("");
+
   // Filtered foods
   const cats = ["Tous", ...Array.from(new Set(FOOD_DB.map(f=>f.cat)))];
   const filtered = FOOD_DB.filter(f => {
@@ -620,7 +630,7 @@ export default function App() {
       {/* -- HEADER ------------------------------------------------------- */}
       <header style={S.header}>
         <div>
-          <div style={S.logo}> <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>PRISE DE POID</span> </div>
+          <div style={S.logo}> <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>GainMode</span> </div>
           <div style={S.headerSub}>60 kg vers 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
         </div>
         <div style={S.headerStats}>
@@ -767,20 +777,49 @@ export default function App() {
                           </tr>
                         </thead>
                         <tbody>
-                          {items.map((item,i)=>(
-                            <tr key={item.id} style={{background:i%2===0?"#111827":"#0f172a"}}>
-                              <td style={S.itd}>{item.name}</td>
-                              <td style={{...S.itd,color:"#9ca3af",fontSize:10}}>{item.displayQty}</td>
-                              <td style={{...S.itd,color:"#f97316",fontWeight:700}}>{item.cal}</td>
-                              <td style={{...S.itd,color:"#ef4444"}}>{item.protein}g</td>
-                              <td style={{...S.itd,color:"#f59e0b"}}>{item.carbs}g</td>
-                              <td style={{...S.itd,color:"#8b5cf6"}}>{item.fat}g</td>
-                              <td style={{...S.itd,color:"#10b981"}}>{item.fiber}g</td>
-                              <td style={S.itd}>
-                                <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>X</button>
-                              </td>
-                            </tr>
-                          ))}
+                          {items.map((item,i)=>{
+                            const isEditing = editingItem?.mealId===slot.id && editingItem?.itemId===item.id;
+                            return (
+                              <React.Fragment key={item.id}>
+                                <tr style={{background:i%2===0?"#111827":"#0f172a"}}>
+                                  <td style={S.itd}>{item.name}</td>
+                                  <td style={{...S.itd,color:"#9ca3af",fontSize:10}}>{item.displayQty}</td>
+                                  <td style={{...S.itd,color:"#f97316",fontWeight:700}}>{item.cal}</td>
+                                  <td style={{...S.itd,color:"#ef4444"}}>{item.protein}g</td>
+                                  <td style={{...S.itd,color:"#f59e0b"}}>{item.carbs}g</td>
+                                  <td style={{...S.itd,color:"#8b5cf6"}}>{item.fat}g</td>
+                                  <td style={{...S.itd,color:"#10b981"}}>{item.fiber}g</td>
+                                  <td style={{...S.itd,display:"flex",gap:3}}>
+                                    <button style={{background:"#1e3a5f",color:"#60a5fa",border:"none",borderRadius:4,padding:"2px 5px",fontSize:10}}
+                                      onClick={()=>{setEditingItem({mealId:slot.id,itemId:item.id});setEditGrams(String(item.grams||100));}}>
+                                      Edit
+                                    </button>
+                                    <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>X</button>
+                                  </td>
+                                </tr>
+                                {isEditing && (
+                                  <tr style={{background:"#1e293b"}}>
+                                    <td colSpan="8" style={{padding:"8px 10px"}}>
+                                      <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+                                        <span style={{fontSize:11,color:"#9ca3af"}}>Modifier la quantité :</span>
+                                        <input type="number" value={editGrams} onChange={e=>setEditGrams(e.target.value)}
+                                          style={{background:"#111827",border:"1px solid #374151",color:"#f1f5f9",borderRadius:6,padding:"4px 8px",fontSize:13,width:70}}/>
+                                        <span style={{fontSize:11,color:"#6b7280"}}>g</span>
+                                        <button onClick={()=>{editItemQty(slot.id,item.id,parseFloat(editGrams)||100);setEditingItem(null);}}
+                                          style={{background:"#10b981",border:"none",color:"#fff",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700}}>
+                                          OK
+                                        </button>
+                                        <button onClick={()=>setEditingItem(null)}
+                                          style={{background:"#374151",border:"none",color:"#9ca3af",borderRadius:6,padding:"5px 10px",fontSize:11}}>
+                                          Annuler
+                                        </button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                )}
+                              </React.Fragment>
+                            );
+                          })}
                           {/* Total row */}
                           <tr style={{background:"#1e293b",fontWeight:700}}>
                             <td style={{...S.itd,fontWeight:700}}>Total</td>
@@ -926,101 +965,7 @@ export default function App() {
 
         {/* ==================== PROGRAMME =============================== */}
         {tab==="program"&&(
-          <div style={S.page}>
-            <div style={S.progHeader}>
-              <div style={S.progTitle}>Programme 4 semaines . 100% maison</div>
-              <div style={S.progSub}>Poids du corps . Débutant vers Intermédiaire</div>
-            </div>
-
-            {/* Week selector */}
-            <div style={S.weekGrid}>
-              {[1,2,3,4].map(w=>(
-                <button key={w} style={{...S.weekBtn,background:currentWeek===w?"#f97316":"#1f2937",color:currentWeek===w?"#fff":"#9ca3af"}}
-                  onClick={()=>{setCurrentWeek(w);setCurrentDayInWeek(1);}}>
-                  Semaine {w}
-                </button>
-              ))}
-            </div>
-
-            {/* Day selector */}
-            <div style={S.dayGrid}>
-              {["L","M","M","J","V","S","D"].map((d,i)=>{
-                const dayNum=i+1;
-                const prog=PROGRAM.find(p=>p.week===currentWeek&&p.day===dayNum);
-                const isRest=prog?.type==="Repos";
-                const isSelected=currentDayInWeek===dayNum;
-                return (
-                  <button key={i} style={{...S.dayBtn,
-                    background:isSelected?"#f97316":isRest?"#111827":"#1e293b",
-                    color:isSelected?"#fff":isRest?"#374151":"#e2e8f0",
-                    border:`1px solid ${isSelected?"#f97316":isRest?"#1f2937":"#334155"}`}}
-                    onClick={()=>setCurrentDayInWeek(dayNum)}>
-                    <div style={{fontWeight:700,fontSize:13}}>{d}</div>
-                    <div style={{fontSize:9,marginTop:2}}>{isRest?"Repos":prog?.type||""}</div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Session detail */}
-            {programDay&&(
-              <div style={S.sessionCard}>
-                <div style={S.sessionHead}>
-                  <div>
-                    <div style={S.sessionName}>{programDay.name}</div>
-                    <div style={S.sessionSub}>Semaine {programDay.week} . Jour {programDay.day}</div>
-                  </div>
-                  {programDay.exercises.length>0&&(
-                    <div style={{textAlign:"right"}}>
-                      <div style={{color:"#ef4444",fontWeight:700}}>~{programDay.exercises.reduce((s,e)=>s+e.cal*e.sets,0)} kcal</div>
-                      <div style={{fontSize:10,color:"#6b7280"}}>brûlées</div>
-                    </div>
-                  )}
-                </div>
-
-                {programDay.exercises.length===0?(
-                  <div style={S.restCard}>
-                    <div style={{fontSize:40}}></div>
-                    <div style={{fontSize:16,fontWeight:700,marginTop:8}}>Jour de repos</div>
-                    <div style={{fontSize:12,color:"#6b7280",marginTop:4}}>La croissance musculaire se fait pendant le repos. Mange bien et dors 8h.</div>
-                  </div>
-                ):(
-                  <>
-                    <table style={S.exTable}>
-                      <thead>
-                        <tr style={{background:"#0a0a1a"}}>
-                          <th style={S.exTh}>Exercice</th>
-                          <th style={S.exTh}>Séries</th>
-                          <th style={S.exTh}>Reps</th>
-                          <th style={S.exTh}>Repos</th>
-                          <th style={S.exTh}>kcal</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {programDay.exercises.map((ex,i)=>(
-                          <tr key={i} style={{background:i%2===0?"#111827":"#0f172a"}}>
-                            <td style={S.exTd}>
-                              <div style={{fontWeight:600,fontSize:12}}>{ex.name}</div>
-                              <div style={{fontSize:10,color:"#f59e0b"}}> {ex.tip}</div>
-                            </td>
-                            <td style={{...S.exTd,textAlign:"center",color:"#f97316",fontWeight:700}}>{ex.sets}</td>
-                            <td style={{...S.exTd,textAlign:"center",fontSize:12}}>{ex.reps}</td>
-                            <td style={{...S.exTd,textAlign:"center",color:"#6b7280",fontSize:12}}>{ex.rest}s</td>
-                            <td style={{...S.exTd,textAlign:"center",color:"#ef4444",fontWeight:700}}>~{ex.cal*ex.sets}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <div style={{padding:"12px 14px"}}>
-                      <button style={S.logBtn} onClick={logSession}>
-                        OK Logger cette séance (+{programDay.exercises.reduce((s,e)=>s+e.cal*e.sets,0)} kcal sur le journal)
-                      </button>
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
+          <ProgramTab day={day} updateDay={updateDay} />
         )}
 
         {/* ==================== STATS ==================================== */}
@@ -1219,6 +1164,237 @@ export default function App() {
 // Mini ring component
 
 // ==================== MENUS TAB COMPONENT ==================================
+
+// ==================== PROGRAM TAB COMPONENT ================================
+function ProgramTab({ day, updateDay }) {
+  const [currentWeek, setCurrentWeek] = React.useState(1);
+  const [currentDayInWeek, setCurrentDayInWeek] = React.useState(1);
+  const [activeTab, setActiveTab] = React.useState("program"); // "program" | "exercises"
+  const [filterMuscle, setFilterMuscle] = React.useState("Tous");
+  const [filterEquip, setFilterEquip] = React.useState("Tous");
+  const [filterLevel, setFilterLevel] = React.useState("Tous");
+
+  const programDay = PROGRAM.find(p => p.week === currentWeek && p.day === currentDayInWeek);
+  const dayExercises = programDay ? programDay.exIds.map(id => EXERCISES_DB.find(e => e.id === id)).filter(Boolean) : [];
+  const totalCalDay = dayExercises.reduce((s,e) => s + e.cal * e.sets, 0);
+
+  const muscles = ["Tous", ...Array.from(new Set(EXERCISES_DB.map(e => e.muscle)))];
+  const equips  = ["Tous", "Corps", "Halteres"];
+  const levels  = ["Tous", "debutant", "intermediaire", "avance"];
+
+  const filteredEx = EXERCISES_DB.filter(e => {
+    const mOk = filterMuscle === "Tous" || e.muscle === filterMuscle;
+    const eOk = filterEquip === "Tous" || e.equipment === filterEquip;
+    const lOk = filterLevel === "Tous" || e.level === filterLevel;
+    return mOk && eOk && lOk;
+  });
+
+  const logSession = () => {
+    if (!dayExercises.length) return;
+    const exercises = [...(day.exercises||[]), {
+      name: programDay.name,
+      cal: totalCalDay,
+      week: currentWeek,
+      day: currentDayInWeek
+    }];
+    updateDay({ exercises });
+    if (currentDayInWeek < 7) setCurrentDayInWeek(d => d+1);
+    else if (currentWeek < 4) { setCurrentWeek(w => w+1); setCurrentDayInWeek(1); }
+  };
+
+  const typeColor = { Push:"#f97316", Pull:"#3b82f6", Legs:"#10b981", Full:"#8b5cf6", Repos:"#374151" };
+  const levelColor = { debutant:"#10b981", intermediaire:"#f59e0b", avance:"#ef4444" };
+  const muscleColor = { Pecs:"#f97316", Epaules:"#3b82f6", Triceps:"#8b5cf6", Dos:"#10b981", Biceps:"#06b6d4", Jambes:"#f59e0b", Fessiers:"#ec4899", Mollets:"#84cc16", Abdos:"#ef4444", "Full Body":"#a78bfa" };
+
+  return (
+    <div style={{padding:"12px 12px 60px",display:"flex",flexDirection:"column",gap:10}}>
+      {/* Sub tabs */}
+      <div style={{display:"flex",gap:6,background:"#0f172a",borderRadius:12,padding:6}}>
+        <button onClick={()=>setActiveTab("program")}
+          style={{flex:1,border:"none",borderRadius:8,padding:"8px",fontWeight:700,fontSize:12,
+            background:activeTab==="program"?"#f97316":"transparent",color:activeTab==="program"?"#fff":"#6b7280"}}>
+          Programme
+        </button>
+        <button onClick={()=>setActiveTab("exercises")}
+          style={{flex:1,border:"none",borderRadius:8,padding:"8px",fontWeight:700,fontSize:12,
+            background:activeTab==="exercises"?"#f97316":"transparent",color:activeTab==="exercises"?"#fff":"#6b7280"}}>
+          Tous les exos
+        </button>
+      </div>
+
+      {activeTab==="program" && (
+        <>
+          {/* Week selector */}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
+            {[1,2,3,4].map(w=>(
+              <button key={w} onClick={()=>{setCurrentWeek(w);setCurrentDayInWeek(1);}}
+                style={{border:"none",borderRadius:8,padding:"10px 4px",fontWeight:700,fontSize:12,
+                  background:currentWeek===w?"#f97316":"#1f2937",color:currentWeek===w?"#fff":"#9ca3af"}}>
+                Semaine {w}
+              </button>
+            ))}
+          </div>
+
+          {/* Day selector */}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:4}}>
+            {["L","M","M","J","V","S","D"].map((d,i)=>{
+              const dayNum=i+1;
+              const prog=PROGRAM.find(p=>p.week===currentWeek&&p.day===dayNum);
+              const isRest=prog?.type==="Repos";
+              const isSelected=currentDayInWeek===dayNum;
+              const tc = typeColor[prog?.type]||"#374151";
+              return (
+                <button key={i} onClick={()=>setCurrentDayInWeek(dayNum)}
+                  style={{border:`1px solid ${isSelected?tc:"#1f2937"}`,borderRadius:8,padding:"7px 2px",
+                    display:"flex",flexDirection:"column",alignItems:"center",
+                    background:isSelected?tc:"#0f172a",color:isSelected?"#fff":isRest?"#374151":"#e2e8f0"}}>
+                  <div style={{fontWeight:700,fontSize:13}}>{d}</div>
+                  <div style={{fontSize:8,marginTop:2}}>{isRest?"Repos":prog?.type||""}</div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Session */}
+          {programDay && (
+            <div style={{background:"#0f172a",border:"1px solid #1f2937",borderRadius:12,overflow:"hidden"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",
+                padding:"12px 14px",background:"#111827",borderBottom:"1px solid #1f2937"}}>
+                <div>
+                  <div style={{fontSize:14,fontWeight:700}}>{programDay.name}</div>
+                  <div style={{fontSize:10,color:"#6b7280",marginTop:2}}>Semaine {programDay.week} - Jour {programDay.day}</div>
+                </div>
+                {dayExercises.length > 0 && (
+                  <div style={{textAlign:"right"}}>
+                    <div style={{color:"#ef4444",fontWeight:800,fontSize:16}}>~{totalCalDay}</div>
+                    <div style={{fontSize:9,color:"#6b7280"}}>kcal brûlées</div>
+                  </div>
+                )}
+              </div>
+
+              {dayExercises.length === 0 ? (
+                <div style={{display:"flex",flexDirection:"column",alignItems:"center",padding:"30px 20px",textAlign:"center"}}>
+                  <div style={{fontSize:36}}>Z</div>
+                  <div style={{fontSize:15,fontWeight:700,marginTop:8}}>Jour de repos</div>
+                  <div style={{fontSize:12,color:"#6b7280",marginTop:4}}>Mange bien, dors 8h. La croissance se fait au repos.</div>
+                </div>
+              ) : (
+                <>
+                  {dayExercises.map((ex,i) => (
+                    <div key={ex.id} style={{padding:"10px 14px",borderBottom:"1px solid #111827",
+                      background:i%2===0?"#0f172a":"#111827",display:"flex",gap:10,alignItems:"flex-start"}}>
+                      <div style={{width:28,height:28,borderRadius:8,background:muscleColor[ex.muscle]||"#374151",
+                        display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#fff",flexShrink:0}}>
+                        {i+1}
+                      </div>
+                      <div style={{flex:1}}>
+                        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                          <div style={{fontSize:13,fontWeight:700}}>{ex.name}</div>
+                          <div style={{fontSize:11,color:"#ef4444",fontWeight:700}}>~{ex.cal*ex.sets} kcal</div>
+                        </div>
+                        <div style={{display:"flex",gap:8,marginTop:4,flexWrap:"wrap"}}>
+                          <span style={{background:"#1f2937",borderRadius:5,padding:"2px 7px",fontSize:10,color:"#f97316",fontWeight:700}}>{ex.sets} séries</span>
+                          <span style={{background:"#1f2937",borderRadius:5,padding:"2px 7px",fontSize:10,color:"#e2e8f0"}}>{ex.reps} reps</span>
+                          <span style={{background:"#1f2937",borderRadius:5,padding:"2px 7px",fontSize:10,color:"#6b7280"}}>{ex.rest}s repos</span>
+                          <span style={{background:(muscleColor[ex.muscle]||"#374151")+"30",borderRadius:5,padding:"2px 7px",fontSize:10,color:muscleColor[ex.muscle]||"#e2e8f0"}}>{ex.muscle}</span>
+                          <span style={{background:ex.equipment==="Halteres"?"#3b82f620":"#10b98120",borderRadius:5,padding:"2px 7px",fontSize:10,color:ex.equipment==="Halteres"?"#60a5fa":"#4ade80"}}>{ex.equipment}</span>
+                        </div>
+                        <div style={{fontSize:11,color:"#f59e0b",marginTop:4}}>Tip: {ex.tip}</div>
+                      </div>
+                    </div>
+                  ))}
+                  <div style={{padding:"12px 14px"}}>
+                    <button onClick={logSession}
+                      style={{width:"100%",background:"#10b981",border:"none",color:"#fff",borderRadius:8,
+                        padding:"11px",fontWeight:700,fontSize:13}}>
+                      Logger cette séance (+{totalCalDay} kcal ajoutées au journal)
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Logged today */}
+          {(day.exercises||[]).length > 0 && (
+            <div style={{background:"#0f172a",border:"1px solid #1f2937",borderRadius:12,padding:14}}>
+              <div style={{fontSize:13,fontWeight:700,color:"#f97316",marginBottom:10}}>Sport loggué aujourd'hui</div>
+              {(day.exercises||[]).map((e,i) => (
+                <div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 0",borderBottom:"1px solid #111827"}}>
+                  <span style={{flex:1,fontSize:12}}>{e.name}</span>
+                  <span style={{color:"#ef4444",fontWeight:700,fontSize:12}}>-{e.cal} kcal</span>
+                  <button onClick={()=>{
+                    const exercises=(day.exercises||[]).filter((_,idx)=>idx!==i);
+                    updateDay({exercises});
+                  }} style={{background:"#7f1d1d",color:"#fca5a5",border:"none",borderRadius:4,padding:"2px 7px",fontSize:10}}>X</button>
+                </div>
+              ))}
+              <div style={{fontSize:11,color:"#f97316",fontWeight:700,paddingTop:8}}>
+                Total brûlé : {(day.exercises||[]).reduce((s,e)=>s+(e.cal||0),0)} kcal
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {activeTab==="exercises" && (
+        <>
+          {/* Filters */}
+          <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:2}}>
+            {muscles.map(m=>(
+              <button key={m} onClick={()=>setFilterMuscle(m)}
+                style={{border:"none",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700,whiteSpace:"nowrap",
+                  background:filterMuscle===m?(muscleColor[m]||"#f97316"):"#1f2937",
+                  color:filterMuscle===m?"#fff":"#9ca3af"}}>
+                {m}
+              </button>
+            ))}
+          </div>
+          <div style={{display:"flex",gap:5}}>
+            {equips.map(e=>(
+              <button key={e} onClick={()=>setFilterEquip(e)}
+                style={{border:"none",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700,
+                  background:filterEquip===e?"#3b82f6":"#1f2937",color:filterEquip===e?"#fff":"#9ca3af"}}>
+                {e}
+              </button>
+            ))}
+            {levels.map(l=>(
+              <button key={l} onClick={()=>setFilterLevel(l)}
+                style={{border:"none",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700,
+                  background:filterLevel===l?(levelColor[l]||"#374151"):"#1f2937",color:filterLevel===l?"#fff":"#9ca3af"}}>
+                {l==="Tous"?"Tous niveaux":l}
+              </button>
+            ))}
+          </div>
+          <div style={{fontSize:11,color:"#6b7280"}}>{filteredEx.length} exercices</div>
+
+          {filteredEx.map(ex => (
+            <div key={ex.id} style={{background:"#0f172a",border:`1px solid ${muscleColor[ex.muscle]||"#1f2937"}40`,
+              borderLeft:`3px solid ${muscleColor[ex.muscle]||"#f97316"}`,borderRadius:10,padding:"11px 14px"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:13,fontWeight:700}}>{ex.name}</div>
+                  <div style={{display:"flex",gap:6,marginTop:5,flexWrap:"wrap"}}>
+                    <span style={{background:(muscleColor[ex.muscle]||"#374151")+"30",borderRadius:5,padding:"2px 7px",fontSize:10,color:muscleColor[ex.muscle]||"#e2e8f0",fontWeight:700}}>{ex.muscle}</span>
+                    <span style={{background:ex.equipment==="Halteres"?"#3b82f620":"#10b98120",borderRadius:5,padding:"2px 7px",fontSize:10,color:ex.equipment==="Halteres"?"#60a5fa":"#4ade80"}}>{ex.equipment}</span>
+                    <span style={{background:levelColor[ex.level]+"30",borderRadius:5,padding:"2px 7px",fontSize:10,color:levelColor[ex.level],fontWeight:700}}>{ex.level}</span>
+                  </div>
+                  <div style={{fontSize:11,color:"#f59e0b",marginTop:5}}>Tip: {ex.tip}</div>
+                </div>
+                <div style={{textAlign:"right",marginLeft:10}}>
+                  <div style={{fontSize:11,color:"#f97316",fontWeight:700}}>{ex.sets}x{ex.reps}</div>
+                  <div style={{fontSize:10,color:"#6b7280"}}>{ex.rest}s repos</div>
+                  <div style={{fontSize:11,color:"#ef4444",fontWeight:700,marginTop:2}}>~{ex.cal*ex.sets} kcal</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+    </div>
+  );
+}
+
 function MenusTab() {
   const [search, setSearch] = React.useState("");
   const [slot, setSlot] = React.useState("all");
