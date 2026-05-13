@@ -535,12 +535,12 @@ export default function App() {
           <div style={S.page}>
             {/* Date nav */}
             <div style={S.dateRow}>
-              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()-1);setDate(d.toISOString().slice(0,10));}}><</button>
+              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()-1);setDate(d.toISOString().slice(0,10));}}>&lt;</button>
               <div style={{textAlign:"center"}}>
                 <input type="date" value={date} onChange={e=>setDate(e.target.value)} style={S.dateInput}/>
                 <div style={{fontSize:10,color:"#6b7280",marginTop:2}}>{fmtDate(date)}</div>
               </div>
-              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()+1);setDate(d.toISOString().slice(0,10));}}>></button>
+              <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()+1);setDate(d.toISOString().slice(0,10));}}>&gt;</button>
             </div>
 
             {/* Sommeil + poids */}
@@ -550,7 +550,7 @@ export default function App() {
                 <div style={S.miniCardLabel}> Sommeil</div>
                 {day.sleep ? (
                   <div style={{...S.miniCardVal,color:day.sleep>=7?"#4ade80":"#f87171"}}>
-                    {day.sleep}h <button style={S.resetBtn} onClick={()=>updateDay({sleep:null})}>x</button>
+                    {day.sleep}h <button style={S.resetBtn} onClick={()=>updateDay({sleep:null})}>X</button>
                   </div>
                 ) : (
                   <div style={S.inlineInput}>
@@ -566,7 +566,7 @@ export default function App() {
                 <div style={S.miniCardLabel}> Poids</div>
                 {day.weight ? (
                   <div style={{...S.miniCardVal,color:"#f97316"}}>
-                    {day.weight} kg <button style={S.resetBtn} onClick={()=>updateDay({weight:null})}>x</button>
+                    {day.weight} kg <button style={S.resetBtn} onClick={()=>updateDay({weight:null})}>X</button>
                   </div>
                 ) : (
                   <div style={S.inlineInput}>
@@ -661,7 +661,7 @@ export default function App() {
                               <td style={{...S.itd,color:"#8b5cf6"}}>{item.fat}g</td>
                               <td style={{...S.itd,color:"#10b981"}}>{item.fiber}g</td>
                               <td style={S.itd}>
-                                <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>x</button>
+                                <button style={S.removeBtn} onClick={()=>removeItem(slot.id,item.id)}>X</button>
                               </td>
                             </tr>
                           ))}
@@ -800,7 +800,7 @@ export default function App() {
                     <button style={S.removeBtn} onClick={()=>{
                       const exercises=(day.exercises||[]).filter((_,idx)=>idx!==i);
                       updateDay({exercises});
-                    }}>x</button>
+                    }}>X</button>
                   </div>
                 ))}
               </div>
@@ -813,7 +813,7 @@ export default function App() {
           <div style={S.page}>
             <div style={S.progHeader}>
               <div style={S.progTitle}>Programme 4 semaines . 100% maison</div>
-              <div style={S.progSub}>Poids du corps . Débutant -> Intermédiaire</div>
+              <div style={S.progSub}>Poids du corps . Débutant vers Intermédiaire</div>
             </div>
 
             {/* Week selector */}
@@ -1081,7 +1081,7 @@ export default function App() {
                 <div style={{...S.tipTitle,color:s.color}}>{s.icon} {s.title}</div>
                 {s.items.map((item,j)=>(
                   <div key={j} style={S.tipItem}>
-                    <span style={{color:s.color,marginRight:8,flexShrink:0}}>></span>{item}
+                    <span style={{color:s.color,marginRight:8,flexShrink:0}}>&gt;</span>{item}
                   </div>
                 ))}
               </div>
