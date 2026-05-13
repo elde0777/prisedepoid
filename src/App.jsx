@@ -243,6 +243,122 @@ const FOOD_DB = [
   { id:914, name:"Taboulé maison",             cal:130, protein:3.5, carbs:22,  fat:4,   fiber:2,  sugar:3,  cat:"Plats & Recettes" },
   { id:915, name:"Gratin dauphinois",          cal:170, protein:4,   carbs:18,  fat:9,   fiber:1.5,sugar:2,  cat:"Plats & Recettes" },
   { id:916, name:"Raclette (assiette complète)",cal:620,protein:38,  carbs:25,  fat:42,  fiber:2,  sugar:2,  cat:"Plats & Recettes", portion:{name:"assiette",g:400} },
+  // -- CAFÉS ----------------------------------------------------------------
+  { id:1000, name:"Café allongé",          cal:4,   protein:0.4, carbs:0.6, fat:0,   fiber:0, sugar:0,   cat:"Cafés & Thés", portion:{name:"tasse",g:120} },
+  { id:1001, name:"Café expresso",         cal:2,   protein:0.3, carbs:0,   fat:0,   fiber:0, sugar:0,   cat:"Cafés & Thés", portion:{name:"tasse",g:30} },
+  { id:1002, name:"Café cappuccino",       cal:74,  protein:3.8, carbs:7,   fat:3,   fiber:0, sugar:6,   cat:"Cafés & Thés", portion:{name:"tasse",g:180} },
+  { id:1003, name:"Café latte",            cal:120, protein:6,   carbs:10,  fat:5,   fiber:0, sugar:10,  cat:"Cafés & Thés", portion:{name:"grand verre",g:300} },
+  { id:1004, name:"Café noisette",         cal:20,  protein:0.8, carbs:1.5, fat:0.8, fiber:0, sugar:1.5, cat:"Cafés & Thés", portion:{name:"tasse",g:60} },
+  { id:1005, name:"Café frappé sucré",     cal:110, protein:2,   carbs:20,  fat:2,   fiber:0, sugar:19,  cat:"Cafés & Thés", portion:{name:"verre",g:250} },
+  { id:1006, name:"Café au lait entier",   cal:65,  protein:3.4, carbs:5.1, fat:3.8, fiber:0, sugar:5.1, cat:"Cafés & Thés", portion:{name:"mug",g:250} },
+  { id:1007, name:"Thé nature",            cal:1,   protein:0,   carbs:0,   fat:0,   fiber:0, sugar:0,   cat:"Cafés & Thés", portion:{name:"tasse",g:200} },
+  { id:1008, name:"Thé au lait",           cal:35,  protein:1.5, carbs:3.5, fat:1.5, fiber:0, sugar:3.5, cat:"Cafés & Thés", portion:{name:"tasse",g:200} },
+  { id:1009, name:"Chocolat chaud",        cal:150, protein:5,   carbs:22,  fat:5,   fiber:1, sugar:20,  cat:"Cafés & Thés", portion:{name:"mug",g:250} },
+  // -- FAST FOOD -------------------------------------------------------------
+  { id:1100, name:"Big Mac",               cal:503, protein:25,  carbs:44,  fat:25,  fiber:3, sugar:9,   cat:"Fast Food", portion:{name:"burger",g:200} },
+  { id:1101, name:"Frites grandes",        cal:448, protein:5.9, carbs:57,  fat:21,  fiber:5, sugar:0.5, cat:"Fast Food", portion:{name:"grande",g:154} },
+  { id:1102, name:"Kebab poulet",          cal:280, protein:22,  carbs:32,  fat:7,   fiber:2, sugar:4,   cat:"Fast Food", portion:{name:"kebab",g:280} },
+  { id:1103, name:"Pizza 4 fromages",      cal:295, protein:14,  carbs:30,  fat:13,  fiber:2, sugar:3,   cat:"Fast Food", portion:{name:"part",g:150} },
+  { id:1104, name:"Hot dog",               cal:290, protein:11,  carbs:25,  fat:16,  fiber:1, sugar:5,   cat:"Fast Food", portion:{name:"hot dog",g:130} },
+  { id:1105, name:"Nuggets x6",            cal:270, protein:15,  carbs:17,  fat:15,  fiber:1, sugar:0.5, cat:"Fast Food", portion:{name:"6 pieces",g:100} },
+  { id:1106, name:"Tacos garni",           cal:350, protein:20,  carbs:40,  fat:12,  fiber:3, sugar:5,   cat:"Fast Food", portion:{name:"tacos",g:250} },
+  { id:1107, name:"Panini jambon-fromage", cal:340, protein:16,  carbs:38,  fat:13,  fiber:2, sugar:3,   cat:"Fast Food", portion:{name:"panini",g:200} },
+  // -- POISSONS --------------------------------------------------------------
+  { id:1200, name:"Saumon cuit",           cal:208, protein:20,  carbs:0,   fat:13,  fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1201, name:"Thon en boite (eau)",   cal:116, protein:26,  carbs:0,   fat:0.8, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1202, name:"Cabillaud cuit",        cal:82,  protein:18,  carbs:0,   fat:0.7, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1203, name:"Crevettes cuites",      cal:99,  protein:21,  carbs:0.9, fat:1.1, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1204, name:"Sardines en boite",     cal:208, protein:25,  carbs:0,   fat:12,  fiber:0, sugar:0,   cat:"Poissons" },
+  // -- DESSERTS --------------------------------------------------------------
+  { id:1300, name:"Tiramisu",              cal:310, protein:5.5, carbs:32,  fat:18,  fiber:0.5,sugar:22, cat:"Desserts", portion:{name:"part",g:120} },
+  { id:1301, name:"Mousse chocolat",       cal:280, protein:5,   carbs:28,  fat:17,  fiber:1, sugar:24,  cat:"Desserts", portion:{name:"verrine",g:100} },
+  { id:1302, name:"Glace vanille",         cal:207, protein:3.5, carbs:23,  fat:11,  fiber:0, sugar:20,  cat:"Desserts", portion:{name:"boule",g:80} },
+  { id:1303, name:"Fondant chocolat",      cal:380, protein:6,   carbs:42,  fat:22,  fiber:3, sugar:32,  cat:"Desserts", portion:{name:"part",g:80} },
+  { id:1304, name:"Brownie maison",        cal:420, protein:5,   carbs:48,  fat:24,  fiber:3, sugar:35,  cat:"Desserts", portion:{name:"carré",g:80} },
+  { id:1305, name:"Cheesecake",            cal:320, protein:6,   carbs:30,  fat:20,  fiber:0.5,sugar:22, cat:"Desserts", portion:{name:"part",g:120} },
+  // -- COMPLÉMENTS -----------------------------------------------------------
+  { id:1400, name:"Whey protéine",         cal:370, protein:75,  carbs:8,   fat:5,   fiber:1, sugar:4,   cat:"Compléments", portion:{name:"dose 30g",g:30} },
+  { id:1401, name:"Caséine",               cal:360, protein:72,  carbs:9,   fat:4,   fiber:1, sugar:4,   cat:"Compléments", portion:{name:"dose 30g",g:30} },
+  { id:1402, name:"Gainer prise de masse", cal:400, protein:30,  carbs:60,  fat:5,   fiber:2, sugar:15,  cat:"Compléments", portion:{name:"dose 100g",g:100} },
+  { id:1403, name:"Barre énergétique",     cal:380, protein:8,   carbs:60,  fat:10,  fiber:3, sugar:28,  cat:"Compléments", portion:{name:"barre",g:65} },
+];
+
+// -- MENUS COMPLETS (classés par repas) --------------------------------------
+const MENUS_DB = [
+  // PETIT-DÉJEUNER
+  { id:1, slot:"breakfast", name:"Petit-dej express",       cal:520, protein:18, carbs:70, fat:18, desc:"Café allongé + 2 tartines pain complet beurre + banane", tags:["rapide","budget"] },
+  { id:2, slot:"breakfast", name:"Petit-dej protéiné",      cal:680, protein:42, carbs:55, fat:22, desc:"3 oeufs brouillés + 2 tranches jambon + 2 tartines + café", tags:["protéines","sport"] },
+  { id:3, slot:"breakfast", name:"Porridge prise de masse", cal:750, protein:28, carbs:95, fat:22, desc:"80g avoine + lait entier + banane + beurre cacahuète + miel", tags:["masse","glucides"] },
+  { id:4, slot:"breakfast", name:"Pancakes maison",         cal:820, protein:25, carbs:105,fat:28, desc:"4 pancakes + sirop érable + 2 oeufs + verre lait entier", tags:["gourmand","weekend"] },
+  { id:5, slot:"breakfast", name:"Shake ectomorphe matin",  cal:900, protein:38, carbs:120,fat:28, desc:"Lait 400ml + 2 bananes + 80g avoine + beurre cacahuète + miel", tags:["masse","shake","rapide"] },
+  { id:6, slot:"breakfast", name:"Petit-dej continental",   cal:580, protein:20, carbs:75, fat:22, desc:"Croissant + 2 tartines confiture + jus orange + café au lait", tags:["classique","café"] },
+  { id:7, slot:"breakfast", name:"Bowl yaourt granola",     cal:620, protein:22, carbs:82, fat:20, desc:"Yaourt grec + granola 60g + fruits rouges + miel + café", tags:["frais","léger"] },
+  { id:8, slot:"breakfast", name:"Pain perdu",              cal:750, protein:22, carbs:95, fat:28, desc:"3 tranches pain brioché + oeuf + lait cuites au beurre + miel", tags:["gourmand","weekend"] },
+  { id:9, slot:"breakfast", name:"Omelette matin",          cal:540, protein:32, carbs:30, fat:28, desc:"3 oeufs + jambon + 2 tartines + café noisette", tags:["protéines","rapide"] },
+  { id:10, slot:"breakfast", name:"Céréales + lait",        cal:490, protein:14, carbs:78, fat:12, desc:"Bol céréales 60g + 250ml lait entier + banane + café", tags:["classique","rapide"] },
+  { id:11, slot:"breakfast", name:"Tartines avocat-oeuf",   cal:560, protein:22, carbs:45, fat:28, desc:"2 tartines pain complet + avocat écrasé + 2 oeufs pochés + café", tags:["healthy"] },
+  { id:12, slot:"breakfast", name:"Smoothie bowl masse",    cal:680, protein:24, carbs:90, fat:20, desc:"Banane + mangue + lait + granola + noix de coco + miel", tags:["fruits","masse"] },
+  { id:13, slot:"breakfast", name:"Brioche Nutella",        cal:790, protein:18, carbs:110,fat:28, desc:"3 tranches brioche + Nutella + lait entier + banane", tags:["gourmand","calorie"] },
+  { id:14, slot:"breakfast", name:"Overnight oats masse",   cal:720, protein:30, carbs:90, fat:22, desc:"Avoine 80g + lait + yaourt grec + fruits + chia + miel (veille)", tags:["préparation","masse"] },
+  { id:15, slot:"breakfast", name:"Tartines beurre cacahuète", cal:700, protein:28, carbs:82, fat:28, desc:"3 tartines pain complet + beurre cacahuète + miel + lait 300ml", tags:["masse","budget","rapide"] },
+  { id:16, slot:"breakfast", name:"Gaufres maison",         cal:760, protein:20, carbs:98, fat:28, desc:"2 gaufres + sirop + beurre + jus orange + café", tags:["weekend","gourmand"] },
+  { id:17, slot:"breakfast", name:"French toast",           cal:820, protein:24, carbs:100,fat:30, desc:"3 tranches pain trempées oeuf + lait + cuites beurre + sirop érable", tags:["gourmand","weekend"] },
+  { id:18, slot:"breakfast", name:"Café + croissant beurre",cal:480, protein:10, carbs:55, fat:24, desc:"Grand café au lait + 2 croissants beurre + jus orange", tags:["café","classique","rapide"] },
+  { id:19, slot:"breakfast", name:"Petit-dej turc",         cal:640, protein:28, carbs:60, fat:28, desc:"Oeufs brouillés + tomates + concombre + pain + fromage + thé", tags:["original","protéines"] },
+  { id:20, slot:"breakfast", name:"Shake whey-lait",        cal:560, protein:50, carbs:60, fat:12, desc:"Dose whey + 350ml lait entier + banane + 2 càs avoine", tags:["protéines","sport","rapide"] },
+  // DÉJEUNER
+  { id:101, slot:"lunch", name:"Riz poulet classique",      cal:850, protein:55, carbs:95, fat:18, desc:"200g blanc poulet + 150g riz + légumes sautés + sauce soja", tags:["masse","protéines","budget"] },
+  { id:102, slot:"lunch", name:"Pâtes bolognaise",          cal:920, protein:48, carbs:105,fat:24, desc:"180g pâtes + 200g viande hachée + sauce tomate + gruyère", tags:["classique","budget","masse"] },
+  { id:103, slot:"lunch", name:"Steak haché-frites",        cal:980, protein:42, carbs:85, fat:42, desc:"2 steaks hachés + 200g frites + ketchup + salade", tags:["classique","gourmand"] },
+  { id:104, slot:"lunch", name:"Kebab maison",              cal:850, protein:38, carbs:88, fat:30, desc:"Pain pita + poulet mariné + sauce blanche + crudités + frites", tags:["gourmand","original"] },
+  { id:105, slot:"lunch", name:"Riz aux oeufs sauté",       cal:780, protein:30, carbs:90, fat:28, desc:"150g riz + 4 oeufs + lardons + sauce soja + petits pois", tags:["rapide","budget"] },
+  { id:106, slot:"lunch", name:"Poulet rôti-purée",         cal:920, protein:52, carbs:85, fat:30, desc:"250g poulet rôti + purée maison + haricots verts + sauce", tags:["classique","masse"] },
+  { id:107, slot:"lunch", name:"Burger maison complet",     cal:1050,protein:50, carbs:95, fat:42, desc:"Steak + pain + gruyère fondu + oeuf + sauce + frites", tags:["gourmand","masse","weekend"] },
+  { id:108, slot:"lunch", name:"Pâtes carbonara",           cal:960, protein:38, carbs:105,fat:38, desc:"180g pâtes + lardons + crème + oeufs + gruyère", tags:["classique","rapide"] },
+  { id:109, slot:"lunch", name:"Riz cantonais",             cal:820, protein:28, carbs:98, fat:28, desc:"200g riz + 2 oeufs + jambon + petits pois + sauce soja", tags:["rapide","original"] },
+  { id:110, slot:"lunch", name:"Steak-pâtes beurre",        cal:900, protein:50, carbs:95, fat:22, desc:"200g steak + 150g pâtes + beurre + parmesan", tags:["simple","masse","protéines"] },
+  { id:111, slot:"lunch", name:"Gratin de pâtes",           cal:880, protein:38, carbs:90, fat:35, desc:"180g pâtes + béchamel + jambon + gruyère fondu au four", tags:["gourmand","réconfortant"] },
+  { id:112, slot:"lunch", name:"Poulet curry-riz",          cal:860, protein:48, carbs:90, fat:22, desc:"200g poulet + 150g riz + sauce curry + crème + oignon", tags:["saveur","masse"] },
+  { id:113, slot:"lunch", name:"Assiette mexicaine",        cal:920, protein:40, carbs:100,fat:30, desc:"Riz + haricots rouges + viande hachée épicée + maïs + tortilla", tags:["original","masse"] },
+  { id:114, slot:"lunch", name:"Pâtes pesto-poulet",        cal:840, protein:45, carbs:88, fat:28, desc:"180g pâtes + 150g poulet + pesto + tomates cerises", tags:["saveur","rapide"] },
+  { id:115, slot:"lunch", name:"Omelette géante",           cal:720, protein:45, carbs:35, fat:42, desc:"5 oeufs + pommes de terre + lardons + oignon", tags:["protéines","oeufs"] },
+  { id:116, slot:"lunch", name:"Wraps poulet-avocat",       cal:780, protein:42, carbs:72, fat:28, desc:"2 wraps + poulet + avocat + tomates + salade + sauce", tags:["fresh","protéines"] },
+  { id:117, slot:"lunch", name:"Sauté de porc-pâtes",       cal:900, protein:46, carbs:95, fat:30, desc:"200g filet porc + 150g pâtes + crème + moutarde + champignons", tags:["classique","saveur"] },
+  { id:118, slot:"lunch", name:"Bowl protéiné masse",       cal:820, protein:58, carbs:72, fat:25, desc:"Riz brun + poulet + oeufs durs + avocat + légumes + sauce soja", tags:["healthy","masse","protéines"] },
+  { id:119, slot:"lunch", name:"Lasagnes maison",           cal:950, protein:42, carbs:88, fat:38, desc:"Lasagnes bolognaise + béchamel + gruyère + salade", tags:["classique","weekend"] },
+  { id:120, slot:"lunch", name:"Tacos maison",              cal:960, protein:40, carbs:105,fat:30, desc:"3 tacos + viande hachée + frites + sauce + fromage", tags:["tendance","gourmand"] },
+  // GOÛTER
+  { id:201, slot:"snack", name:"Shake masse classique",     cal:620, protein:30, carbs:80, fat:18, desc:"400ml lait entier + 2 bananes + 3 càs beurre cacahuète + miel", tags:["masse","shake","rapide"] },
+  { id:202, slot:"snack", name:"Pain beurre de cacahuète",  cal:520, protein:22, carbs:60, fat:22, desc:"3 tartines pain complet + beurre cacahuète + miel + lait 200ml", tags:["budget","rapide","masse"] },
+  { id:203, slot:"snack", name:"Yaourt + fruits + granola", cal:440, protein:16, carbs:62, fat:12, desc:"2 yaourts grecs + granola 40g + banane + miel", tags:["frais","léger"] },
+  { id:204, slot:"snack", name:"Shake protéiné sport",      cal:560, protein:48, carbs:55, fat:12, desc:"Dose whey 30g + lait entier 300ml + barre protéinée", tags:["protéines","sport","rapide"] },
+  { id:205, slot:"snack", name:"Tartines Nutella",          cal:580, protein:12, carbs:82, fat:22, desc:"3 tartines pain + Nutella + verre lait entier", tags:["gourmand","rapide"] },
+  { id:206, slot:"snack", name:"Fromage blanc + céréales",  cal:420, protein:22, carbs:58, fat:8,  desc:"200g fromage blanc + céréales + miel + fruits", tags:["léger","protéines"] },
+  { id:207, slot:"snack", name:"Smoothie banane-avoine",    cal:550, protein:18, carbs:85, fat:12, desc:"300ml lait + banane + 40g avoine + yaourt + miel mixés", tags:["shake","masse","rapide"] },
+  { id:208, slot:"snack", name:"Noix et fruits secs",       cal:380, protein:10, carbs:42, fat:20, desc:"Noix + amandes + raisins secs + dattes + cacahuètes", tags:["budget","rapide","sain"] },
+  { id:209, slot:"snack", name:"Crêpes confiture",          cal:560, protein:14, carbs:80, fat:18, desc:"2 crêpes + confiture ou Nutella + verre lait", tags:["classique","gourmand"] },
+  { id:210, slot:"snack", name:"Smoothie masse tropical",   cal:680, protein:22, carbs:95, fat:18, desc:"Lait entier + mangue + banane + ananas + gainer 50g", tags:["tropical","masse","shake"] },
+  // DÎNER
+  { id:301, slot:"dinner", name:"Poulet-pâtes-beurre",      cal:900, protein:52, carbs:98, fat:28, desc:"200g poulet + 180g pâtes + beurre + parmesan + herbes", tags:["classique","masse","simple"] },
+  { id:302, slot:"dinner", name:"Steak-purée maison",       cal:950, protein:50, carbs:88, fat:35, desc:"200g steak + grande purée maison beurre + haricots verts", tags:["classique","français","masse"] },
+  { id:303, slot:"dinner", name:"Riz sauté complet",        cal:880, protein:38, carbs:100,fat:25, desc:"200g riz + poulet + légumes variés + sauce soja + oeuf", tags:["asiatique","masse","rapide"] },
+  { id:304, slot:"dinner", name:"Raclette soirée",          cal:1100,protein:55, carbs:80, fat:55, desc:"Pommes de terre + charcuterie + raclette + cornichons", tags:["convivial","gourmand","weekend"] },
+  { id:305, slot:"dinner", name:"Pâtes au gratin",          cal:960, protein:40, carbs:108,fat:35, desc:"180g pâtes + crème + gruyère + lardons au four", tags:["réconfortant","masse"] },
+  { id:306, slot:"dinner", name:"Burger soirée",            cal:1050,protein:50, carbs:98, fat:45, desc:"Steak + pain brioche + fromage fondu + bacon + frites + sauce", tags:["gourmand","weekend","masse"] },
+  { id:307, slot:"dinner", name:"Poulet rôti dominical",    cal:920, protein:58, carbs:78, fat:30, desc:"250g poulet rôti + pommes de terre + légumes rôtis + sauce", tags:["classique","dimanche"] },
+  { id:308, slot:"dinner", name:"Spaghetti carbonara",      cal:980, protein:40, carbs:108,fat:38, desc:"180g spaghetti + lardons + crème + oeufs + gruyère", tags:["classique","rapide","masse"] },
+  { id:309, slot:"dinner", name:"Tacos soirée",             cal:1000,protein:42, carbs:110,fat:32, desc:"3 tacos + viande hachée épicée + frites + sauce + salade", tags:["tendance","gourmand","masse"] },
+  { id:310, slot:"dinner", name:"Lasagnes classiques",      cal:960, protein:44, carbs:90, fat:40, desc:"Lasagnes bolognaise maison + béchamel + gruyère + salade", tags:["classique","weekend"] },
+  { id:311, slot:"dinner", name:"Wok boeuf-légumes",        cal:820, protein:45, carbs:85, fat:25, desc:"200g boeuf + nouilles + poivrons + courgette + sauce huître", tags:["asiatique","rapide","saveur"] },
+  { id:312, slot:"dinner", name:"Pizza maison",             cal:950, protein:38, carbs:108,fat:32, desc:"Pâte + sauce tomate + mozzarella + jambon + champignons", tags:["gourmand","weekend","masse"] },
+  { id:313, slot:"dinner", name:"Côtes de porc-frites",     cal:980, protein:48, carbs:88, fat:40, desc:"2 côtes porc + frites four + sauce barbecue + salade", tags:["classique","gourmand"] },
+  { id:314, slot:"dinner", name:"Pâtes pesto-jambon",       cal:820, protein:38, carbs:92, fat:28, desc:"180g pâtes + jambon + pesto + tomates cerises + parmesan", tags:["rapide","simple","saveur"] },
+  { id:315, slot:"dinner", name:"Poulet tikka masala",      cal:840, protein:50, carbs:80, fat:25, desc:"200g poulet + sauce tikka + riz basmati + naan", tags:["indien","saveur","original"] },
+  { id:316, slot:"dinner", name:"Omelette pommes de terre", cal:780, protein:42, carbs:55, fat:40, desc:"5 oeufs + 3 pommes de terre + lardons + gruyère fondu + salade", tags:["oeufs","classique","budget"] },
+  { id:317, slot:"dinner", name:"Gratin dauphinois-côte",   cal:950, protein:45, carbs:82, fat:45, desc:"Côtelette de porc + gratin dauphinois + salade verte", tags:["classique","réconfortant"] },
+  { id:318, slot:"dinner", name:"Riz cantonais dîner",      cal:820, protein:30, carbs:95, fat:25, desc:"Riz + oeufs + lardons + crevettes + sauce soja + légumes", tags:["asiatique","saveur"] },
+  { id:319, slot:"dinner", name:"Poulet basquaise",         cal:820, protein:50, carbs:68, fat:28, desc:"200g poulet + poivrons + tomates + oignon + riz", tags:["français","saveur"] },
+  { id:320, slot:"dinner", name:"Porc-semoule",             cal:860, protein:48, carbs:88, fat:25, desc:"200g filet porc + 150g semoule + sauce tomate + légumes", tags:["varié","masse"] },
 ];
 
 // -- Programme sport (jour par jour, 6 semaines) -----------------------------
@@ -251,7 +367,7 @@ const PROGRAM = [
   { week:1, day:1, type:"Haut", name:"Séance A - Haut du corps", exercises:[
     { name:"Pompes sur genoux", sets:3, reps:"8-10", rest:90, cal:15, tip:"Dos droit, coudes à 45°" },
     { name:"Dips sur chaise", sets:3, reps:"8", rest:90, cal:12, tip:"Coudes près du corps" },
-    { name:"Pompes larges", sets:2, reps:"8", rest:90, cal:10, tip:"Mains 2× largeur épaules" },
+    { name:"Pompes larges", sets:2, reps:"8", rest:90, cal:10, tip:"Mains 2x largeur épaules" },
   ]},
   { week:1, day:2, type:"Repos", name:"Repos actif", exercises:[] },
   { week:1, day:3, type:"Bas", name:"Séance B - Bas du corps", exercises:[
@@ -517,9 +633,9 @@ export default function App() {
       <nav style={S.nav}>
         {[
           {id:"journal",icon:"",label:"Journal"},
-          {id:"program",icon:"",label:"Programme"},
+          {id:"menus",  icon:"",label:"Menus"},
+          {id:"program",icon:"",label:"Sport"},
           {id:"stats",  icon:"",label:"Stats"},
-          {id:"tips",   icon:"",label:"Conseils"},
         ].map(t=>(
           <button key={t.id} style={{...S.navBtn,...(tab===t.id?S.navActive:{})}} onClick={()=>setTab(t.id)}>
             <span style={{fontSize:18}}>{t.icon}</span>
@@ -913,7 +1029,7 @@ export default function App() {
             {/* Weight chart */}
             <div style={S.chartCard}>
               <div style={S.chartTitle}> Évolution du poids</div>
-              <div style={S.chartSubtitle}>{PROFILE.startWeight} kg — objectif {PROFILE.targetWeight} kg</div>
+              <div style={S.chartSubtitle}>{PROFILE.startWeight} kg - objectif {PROFILE.targetWeight} kg</div>
               {weightPoints.length<2?(
                 <div style={S.chartEmpty}>Enregistre ton poids chaque matin pour voir le graphique apparaître ici.</div>
               ):(()=>{
@@ -1033,6 +1149,12 @@ export default function App() {
         )}
 
         {/* ==================== CONSEILS ================================ */}
+
+        {/* ==================== MENUS ===================================== */}
+        {tab==="menus"&&(
+          <MenusTab />
+        )}
+
         {tab==="tips"&&(
           <div style={S.page}>
             {[
@@ -1051,9 +1173,9 @@ export default function App() {
               { icon:"", title:"Atteindre 3400 kcal avec 15-40€/semaine", color:"#3b82f6", items:[
                 "Riz + poulet + œufs = la sainte trinité budget. Achète en grande quantité.",
                 "Beurre de cacahuète : 600 kcal pour ~1€, protéines + graisses saines. Mange-en partout.",
-                "Lait entier : 2× plus calorique que le demi-écrémé, même prix. Vise 500ml/jour.",
+                "Lait entier : 2x plus calorique que le demi-écrémé, même prix. Vise 500ml/jour.",
                 "Avoine (1kg ~3€) : 389 kcal/100g + protéines. En 3 min au micro-ondes.",
-                "Viande hachée 15% : 3× moins chère que le filet, plus calorique, autant de protéines.",
+                "Viande hachée 15% : 3x moins chère que le filet, plus calorique, autant de protéines.",
                 "Bananes : 89 kcal pièce, ~0,20€. Idéal avant/après sport et au goûter.",
               ]},
               { icon:"", title:"Sport maison sans matériel", color:"#8b5cf6", items:[
@@ -1095,6 +1217,114 @@ export default function App() {
 }
 
 // Mini ring component
+
+// ==================== MENUS TAB COMPONENT ==================================
+function MenusTab() {
+  const [search, setSearch] = React.useState("");
+  const [slot, setSlot] = React.useState("all");
+  const [tag, setTag] = React.useState("all");
+  const [selected, setSelected] = React.useState(null);
+
+  const slots = [
+    {id:"all",    label:"Tous"},
+    {id:"breakfast", label:"Petit-dej"},
+    {id:"lunch",  label:"Déjeuner"},
+    {id:"snack",  label:"Goûter"},
+    {id:"dinner", label:"Dîner"},
+  ];
+
+  const allTags = ["all","rapide","masse","protéines","budget","gourmand","classique","sport","healthy","weekend","shake"];
+
+  const filtered = MENUS_DB.filter(m => {
+    const matchSlot = slot === "all" || m.slot === slot;
+    const matchTag  = tag === "all" || m.tags.includes(tag);
+    const matchQ    = !search || m.name.toLowerCase().includes(search.toLowerCase()) || m.desc.toLowerCase().includes(search.toLowerCase());
+    return matchSlot && matchTag && matchQ;
+  });
+
+  const slotColor = {breakfast:"#f59e0b", lunch:"#10b981", snack:"#8b5cf6", dinner:"#ef4444"};
+  const slotLabel = {breakfast:"Petit-dej", lunch:"Déjeuner", snack:"Goûter", dinner:"Dîner"};
+
+  return (
+    <div style={{padding:"12px 12px 60px",display:"flex",flexDirection:"column",gap:10}}>
+      <div style={{background:"#0f172a",border:"1px solid #1f2937",borderRadius:12,padding:"12px 14px"}}>
+        <div style={{fontSize:15,fontWeight:800,marginBottom:4}}>Idées de repas</div>
+        <div style={{fontSize:11,color:"#6b7280"}}>{MENUS_DB.length} menus complets avec calories et macros</div>
+      </div>
+
+      {/* Search */}
+      <input
+        placeholder="Rechercher un menu..."
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        style={{background:"#0f172a",border:"1px solid #374151",color:"#f1f5f9",borderRadius:10,padding:"10px 14px",fontSize:13,width:"100%"}}
+      />
+
+      {/* Slot filter */}
+      <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:4}}>
+        {slots.map(s => (
+          <button key={s.id} onClick={() => setSlot(s.id)}
+            style={{border:"none",borderRadius:8,padding:"6px 12px",fontWeight:700,fontSize:11,whiteSpace:"nowrap",
+              background: slot===s.id ? "#f97316" : "#1f2937",
+              color: slot===s.id ? "#fff" : "#9ca3af"}}>
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tag filter */}
+      <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:4}}>
+        {allTags.map(t => (
+          <button key={t} onClick={() => setTag(t)}
+            style={{border:"none",borderRadius:6,padding:"4px 10px",fontSize:10,fontWeight:700,whiteSpace:"nowrap",
+              background: tag===t ? "#3b82f6" : "#111827",
+              color: tag===t ? "#fff" : "#6b7280"}}>
+            {t === "all" ? "Tous les tags" : t}
+          </button>
+        ))}
+      </div>
+
+      {/* Count */}
+      <div style={{fontSize:11,color:"#6b7280",paddingLeft:2}}>{filtered.length} menu{filtered.length > 1 ? "s" : ""} trouvé{filtered.length > 1 ? "s" : ""}</div>
+
+      {/* Menu list */}
+      {filtered.map(menu => (
+        <div key={menu.id}
+          style={{background:"#0f172a",border:`1px solid ${selected?.id===menu.id?"#f97316":"#1f2937"}`,borderLeft:`3px solid ${slotColor[menu.slot]||"#f97316"}`,borderRadius:12,overflow:"hidden",cursor:"pointer"}}
+          onClick={() => setSelected(selected?.id===menu.id ? null : menu)}>
+          <div style={{padding:"11px 14px",display:"flex",alignItems:"center",gap:10}}>
+            <div style={{flex:1}}>
+              <div style={{fontSize:13,fontWeight:700}}>{menu.name}</div>
+              <div style={{fontSize:10,color:"#6b7280",marginTop:2}}>{slotLabel[menu.slot]}</div>
+            </div>
+            <div style={{textAlign:"right"}}>
+              <div style={{fontSize:16,fontWeight:900,color:"#f97316"}}>{menu.cal}</div>
+              <div style={{fontSize:9,color:"#6b7280"}}>kcal</div>
+            </div>
+            <span style={{color:"#6b7280",fontSize:14}}>{selected?.id===menu.id ? "^" : "v"}</span>
+          </div>
+
+          {selected?.id===menu.id && (
+            <div style={{padding:"0 14px 14px",borderTop:"1px solid #1f2937"}}>
+              <p style={{fontSize:12,color:"#cbd5e1",lineHeight:1.6,marginTop:10,marginBottom:10}}>{menu.desc}</p>
+              <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10}}>
+                <span style={{background:"#ef444420",color:"#f87171",borderRadius:6,padding:"3px 8px",fontSize:11,fontWeight:700}}>Prot: {menu.protein}g</span>
+                <span style={{background:"#f59e0b20",color:"#fbbf24",borderRadius:6,padding:"3px 8px",fontSize:11,fontWeight:700}}>Gluc: {menu.carbs}g</span>
+                <span style={{background:"#8b5cf620",color:"#a78bfa",borderRadius:6,padding:"3px 8px",fontSize:11,fontWeight:700}}>Lip: {menu.fat}g</span>
+              </div>
+              <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
+                {menu.tags.map(t => (
+                  <span key={t} style={{background:"#1f2937",borderRadius:6,padding:"2px 8px",fontSize:10,color:"#6b7280"}}>{t}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function MacroRing({value,target,color,label}){
   const pct=Math.min(100,Math.round(value/target*100));
   return (
