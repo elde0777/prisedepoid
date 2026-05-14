@@ -752,19 +752,20 @@ function DisclaimerScreen({ onAccept }) {
 }
 
 export default function App() {
-  const [disclaimer, setDisclaimer] = useState(() => {
-    try { return localStorage.getItem("gainmode_disclaimer") !== "accepted"; }
-    catch { return true; }
-  });
+  const [disclaimer, setDisclaimer] = useState(true);
+
+  React.useEffect(() => {
+    try {
+      if (localStorage.getItem("gainmode_disclaimer") === "accepted") {
+        setDisclaimer(false);
+      }
+    } catch {}
+  }, []);
 
   const acceptDisclaimer = () => {
     try { localStorage.setItem("gainmode_disclaimer", "accepted"); } catch {}
     setDisclaimer(false);
   };
-  // disclaimer fix: force update
-  React.useEffect(() => {
-    if (!disclaimer) window.scrollTo(0,0);
-  }, [disclaimer]);
 
   if (disclaimer) {
     return <DisclaimerScreen onAccept={acceptDisclaimer} />;
