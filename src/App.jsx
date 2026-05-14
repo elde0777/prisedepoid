@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 const PROFILE = {
   startWeight: 60, targetWeight: 70, height: 180, age: 30,
   goalMonths: 6,
-  dailyCal: 3400, dailyProtein: 160, dailyCarbs: 430,
+  dailyCal: 3000, dailyProtein: 150, dailyCarbs: 380,
   dailyFat: 105, dailyFiber: 35, dailySugar: 80,
 };
 
@@ -972,9 +972,9 @@ export default function App() {
             </svg>
             <div>
               <div style={{fontSize:20,fontWeight:900,color:"#f97316",letterSpacing:2,lineHeight:1}}>GainMode</div>
+            <div style={{fontSize:9,color:"#6b7280",letterSpacing:1}}>Built Different</div>
             </div>
           </div>
-          <div style={S.headerSub}>60 kg vers 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
         </div>
         <div style={S.headerStats}>
           <MacroRing value={dayTotals.cal} target={adjustedCal} color="#f97316" label="kcal" />
@@ -1559,7 +1559,7 @@ export default function App() {
                 "Si tu n'as pas faim : remplace par un shake (lait entier 300ml + banane + 50g avoine + beurre de cacahuète = 650 kcal en 2 min).",
                 "Ne saute jamais le petit-déjeuner : le corps est en mode catabolisme (dégradation) après 8h de jeûne.",
               ]},
-              { icon:"", title:"Atteindre 3400 kcal avec 15-40€/semaine", color:"#3b82f6", items:[
+              { icon:"", title:"Atteindre 3000 kcal avec 15-40€/semaine", color:"#3b82f6", items:[
                 "Riz + poulet + œufs = la sainte trinité budget. Achète en grande quantité.",
                 "Beurre de cacahuète : 600 kcal pour ~1€, protéines + graisses saines. Mange-en partout.",
                 "Lait entier : 2x plus calorique que le demi-écrémé, même prix. Vise 500ml/jour.",
