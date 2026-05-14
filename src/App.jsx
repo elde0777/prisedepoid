@@ -752,11 +752,12 @@ function DisclaimerScreen({ onAccept }) {
 }
 
 export default function App() {
-  // Lire localStorage de facon synchrone pour eviter le flash noir
-  const [disclaimer, setDisclaimer] = useState(() => {
-    try { return localStorage.getItem("gainmode_disclaimer") !== "accepted"; }
-    catch { return true; }
+  // Lire localStorage de facon synchrone
+  const [showApp, setShowApp] = useState(() => {
+    try { return localStorage.getItem("gainmode_disclaimer") === "accepted"; }
+    catch { return false; }
   });
+  const disclaimer = !showApp;
   const [tab, setTab]   = useState("journal");
   const [db,  setDb]    = useState(loadDB);
   const [date, setDate] = useState(todayStr());
@@ -778,11 +779,10 @@ export default function App() {
 
   const acceptDisclaimer = () => {
     try { localStorage.setItem("gainmode_disclaimer", "accepted"); } catch {}
-    setDisclaimer(false);
+    setShowApp(true);
   };
 
-  // Conditional render APRES tous les hooks
-  if (disclaimer) {
+  if (!showApp) {
     return <DisclaimerScreen onAccept={acceptDisclaimer} />;
   }
 
