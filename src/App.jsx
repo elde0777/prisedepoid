@@ -752,8 +752,11 @@ function DisclaimerScreen({ onAccept }) {
 }
 
 export default function App() {
-  // ALL hooks must be declared before any conditional return (React rule)
-  const [disclaimer, setDisclaimer] = useState(true);
+  // Lire localStorage de facon synchrone pour eviter le flash noir
+  const [disclaimer, setDisclaimer] = useState(() => {
+    try { return localStorage.getItem("gainmode_disclaimer") !== "accepted"; }
+    catch { return true; }
+  });
   const [tab, setTab]   = useState("journal");
   const [db,  setDb]    = useState(loadDB);
   const [date, setDate] = useState(todayStr());
@@ -771,15 +774,6 @@ export default function App() {
   const [currentDayInWeek, setCurrentDayInWeek] = useState(1);
   const [loggedSessions, setLoggedSessions] = useState({});
 
-  // Effects
-  React.useEffect(() => {
-    try {
-      if (localStorage.getItem("gainmode_disclaimer") === "accepted") {
-        setDisclaimer(false);
-      }
-    } catch {}
-  }, []);
-
   useEffect(() => saveDB(db), [db]);
 
   const acceptDisclaimer = () => {
@@ -787,7 +781,7 @@ export default function App() {
     setDisclaimer(false);
   };
 
-  // Conditional render AFTER all hooks
+  // Conditional render APRES tous les hooks
   if (disclaimer) {
     return <DisclaimerScreen onAccept={acceptDisclaimer} />;
   }
