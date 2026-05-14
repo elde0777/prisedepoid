@@ -16,42 +16,91 @@
       body { background: #050510; color: #f1f5f9; font-family: system-ui, sans-serif; }
       #splash {
         position: fixed; inset: 0; background: #050510;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        z-index: 9999; transition: opacity 0.5s;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.6s ease;
       }
-      #splash .logo { font-size: 48px; font-weight: 900; color: #f97316; letter-spacing: 4px; margin-bottom: 8px; }
-      #splash .tagline { font-size: 14px; color: #6b7280; letter-spacing: 2px; margin-bottom: 40px; }
-      #splash .bar-wrap { width: 160px; height: 4px; background: #1f2937; border-radius: 2px; overflow: hidden; }
-      #splash .bar { height: 100%; background: linear-gradient(90deg, #f97316, #fbbf24); border-radius: 2px; animation: load 1.4s ease forwards; }
-      @keyframes load { from { width: 0% } to { width: 100% } }
+      #splash.hidden { opacity: 0; pointer-events: none; }
+      .splash-logo {
+        font-size: 52px; font-weight: 900;
+        color: #f97316; letter-spacing: 4px;
+        margin-bottom: 6px;
+      }
+      .splash-tag {
+        font-size: 13px; color: #6b7280;
+        letter-spacing: 3px; margin-bottom: 48px;
+        text-transform: uppercase;
+      }
+      .bar-wrap {
+        width: 180px; height: 4px;
+        background: #1f2937; border-radius: 2px; overflow: hidden;
+      }
+      .bar {
+        height: 100%; width: 0%;
+        background: linear-gradient(90deg, #f97316, #fbbf24);
+        border-radius: 2px;
+        transition: width 0.05s linear;
+      }
+      #root { min-height: 100vh; }
     </style>
   </head>
   <body>
-    <!-- Splash screen -->
     <div id="splash">
-      <div class="logo">GainMode</div>
-      <div class="tagline">BUILT DIFFERENT</div>
-      <div class="bar-wrap"><div class="bar"></div></div>
+      <div class="splash-logo">GainMode</div>
+      <div class="splash-tag">Built Different</div>
+      <div class="bar-wrap">
+        <div class="bar" id="splash-bar"></div>
+      </div>
     </div>
 
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- PWA Service Worker -->
     <script>
+      // Animate bar progressively
+      let pct = 0;
+      const bar = document.getElementById('splash-bar');
+      const interval = setInterval(() => {
+        pct = Math.min(pct + 2, 90);
+        if (bar) bar.style.width = pct + '%';
+      }, 40);
+
+      // Hide splash once React has rendered into #root
+      const observer = new MutationObserver(() => {
+        const root = document.getElementById('root');
+        if (root && root.children.length > 0) {
+          clearInterval(interval);
+          if (bar) bar.style.width = '100%';
+          setTimeout(() => {
+            const splash = document.getElementById('splash');
+            if (splash) {
+              splash.classList.add('hidden');
+              setTimeout(() => splash.remove(), 650);
+            }
+          }, 300);
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.getElementById('root'), { childList: true, subtree: true });
+
+      // Fallback: hide after 5s no matter what
+      setTimeout(() => {
+        clearInterval(interval);
+        const splash = document.getElementById('splash');
+        if (splash) {
+          splash.classList.add('hidden');
+          setTimeout(() => splash.remove(), 650);
+        }
+      }, 5000);
+
+      // PWA Service Worker
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js');
         });
       }
-      // Hide splash after 1.6s
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          const s = document.getElementById('splash');
-          if (s) { s.style.opacity = '0'; setTimeout(() => s.remove(), 500); }
-        }, 1600);
-      });
     </script>
   </body>
 </html>
