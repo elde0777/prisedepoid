@@ -752,8 +752,26 @@ function DisclaimerScreen({ onAccept }) {
 }
 
 export default function App() {
+  // ALL hooks must be declared before any conditional return (React rule)
   const [disclaimer, setDisclaimer] = useState(true);
+  const [tab, setTab]   = useState("journal");
+  const [db,  setDb]    = useState(loadDB);
+  const [date, setDate] = useState(todayStr());
+  const [openMeal, setOpenMeal]   = useState(null);
+  const [search, setSearch]       = useState("");
+  const [searchCat, setSearchCat] = useState("Tous");
+  const [qtyMode, setQtyMode]     = useState("g");
+  const [qtyVal, setQtyVal]       = useState("100");
+  const [selectedFood, setSelectedFood] = useState(null);
+  const [manualEntry, setManualEntry]   = useState(false);
+  const [manual, setManual] = useState({ name:"", cal:"", protein:"", carbs:"", fat:"", fiber:"", sugar:"" });
+  const [weightInput, setWeightInput]   = useState("");
+  const [sleepInput, setSleepInput]     = useState("");
+  const [currentWeek, setCurrentWeek] = useState(1);
+  const [currentDayInWeek, setCurrentDayInWeek] = useState(1);
+  const [loggedSessions, setLoggedSessions] = useState({});
 
+  // Effects
   React.useEffect(() => {
     try {
       if (localStorage.getItem("gainmode_disclaimer") === "accepted") {
@@ -762,37 +780,17 @@ export default function App() {
     } catch {}
   }, []);
 
+  useEffect(() => saveDB(db), [db]);
+
   const acceptDisclaimer = () => {
     try { localStorage.setItem("gainmode_disclaimer", "accepted"); } catch {}
     setDisclaimer(false);
   };
 
+  // Conditional render AFTER all hooks
   if (disclaimer) {
     return <DisclaimerScreen onAccept={acceptDisclaimer} />;
   }
-
-  const [tab, setTab]   = useState("journal");
-  const [db,  setDb]    = useState(loadDB);
-  const [date, setDate] = useState(todayStr());
-
-  // Journal states
-  const [openMeal, setOpenMeal]   = useState(null);      // which meal slot is expanded
-  const [search, setSearch]       = useState("");
-  const [searchCat, setSearchCat] = useState("Tous");
-  const [qtyMode, setQtyMode]     = useState("g");        // "g" | "portion"
-  const [qtyVal, setQtyVal]       = useState("100");
-  const [selectedFood, setSelectedFood] = useState(null);
-  const [manualEntry, setManualEntry]   = useState(false);
-  const [manual, setManual] = useState({ name:"", cal:"", protein:"", carbs:"", fat:"", fiber:"", sugar:"" });
-  const [weightInput, setWeightInput]   = useState("");
-  const [sleepInput, setSleepInput]     = useState("");
-
-  // Program state
-  const [currentWeek, setCurrentWeek] = useState(1);
-  const [currentDayInWeek, setCurrentDayInWeek] = useState(1);
-  const [loggedSessions, setLoggedSessions] = useState({});
-
-  useEffect(() => saveDB(db), [db]);
 
   const day = db[date] || { meals:{ breakfast:[], lunch:[], snack:[], dinner:[] }, weight:null, sleep:null, exercises:[] };
 
