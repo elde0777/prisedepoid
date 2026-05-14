@@ -1381,6 +1381,73 @@ export default function App() {
               })()}
             </div>
 
+            {/* Graphique Sommeil */}
+            <div style={S.chartCard}>
+              <div style={S.chartTitle}> Sommeil - 14 derniers jours</div>
+              <div style={S.chartSubtitle}>Objectif : 8h minimum</div>
+              {(() => {
+                const sleepData = last14.map(d => ({ d, s: db[d]?.sleep || 0 }));
+                const hasSleep = sleepData.some(x => x.s > 0);
+                if (!hasSleep) return (
+                  <div style={S.chartEmpty}>
+                    Enregistre ton sommeil chaque soir depuis l'onglet Journal pour voir ce graphique.
+                  </div>
+                );
+                const maxS = Math.max(...sleepData.map(x => x.s), 10);
+                return (
+                  <svg width="100%" viewBox="0 0 360 130" style={{overflow:"visible",marginTop:12}}>
+                    {/* Gridlines */}
+                    {[0,0.25,0.5,0.75,1].map(f => (
+                      <line key={f} x1="0" x2="360" y1={f*100} y2={f*100} stroke="#1f2937" strokeWidth="1"/>
+                    ))}
+                    {/* 8h target line */}
+                    <line x1="0" x2="360" y1={100-(8/maxS)*100} y2={100-(8/maxS)*100}
+                      stroke="#10b981" strokeWidth="1.5" strokeDasharray="5,3"/>
+                    <text x="3" y={100-(8/maxS)*100-4} fill="#10b981" fontSize="8">8h ideal</text>
+                    {/* 6h warning line */}
+                    <line x1="0" x2="360" y1={100-(6/maxS)*100} y2={100-(6/maxS)*100}
+                      stroke="#ef4444" strokeWidth="1" strokeDasharray="3,3" opacity="0.6"/>
+                    <text x="3" y={100-(6/maxS)*100-4} fill="#ef4444" fontSize="8">6h min</text>
+                    {/* Bars */}
+                    {sleepData.map((x,i) => {
+                      const barW = 360/14 - 2;
+                      const bx = i * (360/14) + 1;
+                      const h = x.s ? Math.max(4, (x.s/maxS)*100) : 0;
+                      const col = x.s >= 8 ? "#10b981" : x.s >= 6 ? "#f59e0b" : x.s > 0 ? "#ef4444" : "#1f2937";
+                      return (
+                        <g key={x.d}>
+                          <rect x={bx} y={100-h} width={barW} height={h} fill={col} rx="3"/>
+                          {x.s > 0 && (
+                            <text x={bx+barW/2} y={100-h-4} fill={col} fontSize="7" textAnchor="middle">{x.s}h</text>
+                          )}
+                          {i % 2 === 0 && (
+                            <text x={bx+barW/2} y={118} fill="#6b7280" fontSize="7" textAnchor="middle">
+                              {fmtShort(x.d).slice(0,5)}
+                            </text>
+                          )}
+                        </g>
+                      );
+                    })}
+                  </svg>
+                );
+              })()}
+              {/* Legend */}
+              <div style={{display:"flex",gap:16,marginTop:10,fontSize:11,flexWrap:"wrap"}}>
+                <span style={{color:"#10b981",display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{width:10,height:10,background:"#10b981",borderRadius:2,display:"inline-block"}}/>
+                  8h+ Excellent
+                </span>
+                <span style={{color:"#f59e0b",display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{width:10,height:10,background:"#f59e0b",borderRadius:2,display:"inline-block"}}/>
+                  6-8h Correct
+                </span>
+                <span style={{color:"#ef4444",display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{width:10,height:10,background:"#ef4444",borderRadius:2,display:"inline-block"}}/>
+                  Moins 6h Insuffisant
+                </span>
+              </div>
+            </div>
+
             {/* Tableau détaillé */}
             <div style={S.tableCard}>
               <div style={S.chartTitle}> Tableau détaillé</div>
