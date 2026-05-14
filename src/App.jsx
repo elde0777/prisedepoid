@@ -90,10 +90,6 @@ const FOOD_DB = [
   { id:202, name:"Jaune d'œuf",                cal:358, protein:16,  carbs:0.6, fat:32,  fiber:0, sugar:0.6, cat:"Œufs & Laitiers", portion:{name:"jaune",g:20} },
   { id:203, name:"Lait entier",                cal:61,  protein:3.2, carbs:4.8, fat:3.5, fiber:0, sugar:4.8, cat:"Œufs & Laitiers", portion:{name:"verre 200ml",g:200} },
   { id:204, name:"Lait demi-écrémé",           cal:46,  protein:3.2, carbs:4.8, fat:1.5, fiber:0, sugar:4.8, cat:"Œufs & Laitiers", portion:{name:"verre 200ml",g:200} },
-  { id:205, name:"Lait écrémé",                cal:35,  protein:3.4, carbs:5,   fat:0.1, fiber:0, sugar:5,   cat:"Œufs & Laitiers" },
-  { id:206, name:"Lait de soja nature",        cal:44,  protein:3.6, carbs:2.8, fat:2,   fiber:0.5,sugar:1.5,cat:"Œufs & Laitiers" },
-  { id:207, name:"Lait d'avoine",              cal:47,  protein:1,   carbs:9,   fat:0.8, fiber:0.5,sugar:4,  cat:"Œufs & Laitiers" },
-  { id:208, name:"Yaourt nature entier",       cal:61,  protein:3.5, carbs:4.7, fat:3.2, fiber:0, sugar:4.7, cat:"Œufs & Laitiers", portion:{name:"pot",g:125} },
   { id:209, name:"Yaourt grec (10%)",          cal:130, protein:5,   carbs:3.8, fat:10,  fiber:0, sugar:3.8, cat:"Œufs & Laitiers", portion:{name:"pot",g:150} },
   { id:210, name:"Yaourt grec 0%",             cal:59,  protein:10,  carbs:3.6, fat:0.4, fiber:0, sugar:3.6, cat:"Œufs & Laitiers", portion:{name:"pot",g:150} },
   { id:211, name:"Fromage blanc 0%",           cal:45,  protein:8,   carbs:4,   fat:0.2, fiber:0, sugar:4,   cat:"Œufs & Laitiers" },
@@ -277,10 +273,191 @@ const FOOD_DB = [
   { id:1304, name:"Brownie maison",        cal:420, protein:5,   carbs:48,  fat:24,  fiber:3, sugar:35,  cat:"Desserts", portion:{name:"carré",g:80} },
   { id:1305, name:"Cheesecake",            cal:320, protein:6,   carbs:30,  fat:20,  fiber:0.5,sugar:22, cat:"Desserts", portion:{name:"part",g:120} },
   // -- COMPLÉMENTS -----------------------------------------------------------
-  { id:1400, name:"Whey protéine",         cal:370, protein:75,  carbs:8,   fat:5,   fiber:1, sugar:4,   cat:"Compléments", portion:{name:"dose 30g",g:30} },
-  { id:1401, name:"Caséine",               cal:360, protein:72,  carbs:9,   fat:4,   fiber:1, sugar:4,   cat:"Compléments", portion:{name:"dose 30g",g:30} },
   { id:1402, name:"Gainer prise de masse", cal:400, protein:30,  carbs:60,  fat:5,   fiber:2, sugar:15,  cat:"Compléments", portion:{name:"dose 100g",g:100} },
-  { id:1403, name:"Barre énergétique",     cal:380, protein:8,   carbs:60,  fat:10,  fiber:3, sugar:28,  cat:"Compléments", portion:{name:"barre",g:65} },
+  { id:1403, name:"Barre energetique",     cal:380, protein:8,   carbs:60,  fat:10,  fiber:3, sugar:28,  cat:"Complements", portion:{name:"barre",g:65} },
+  // -- FROMAGES AUTORISES -------------------------------------------------------
+  { id:1500, name:"Gruyere fondu tranche",    cal:290, protein:18, carbs:1,   fat:24,  fiber:0, sugar:0.5, cat:"Fromages", portion:{name:"tranche",g:30} },
+  { id:1501, name:"Raclette tranche",         cal:350, protein:24, carbs:0.5, fat:28,  fiber:0, sugar:0.5, cat:"Fromages", portion:{name:"tranche",g:30} },
+  { id:1502, name:"Fromage ail fines herbes", cal:290, protein:7,  carbs:4,   fat:27,  fiber:0, sugar:2,   cat:"Fromages", portion:{name:"portion",g:30} },
+  { id:1503, name:"Emmental tranche",         cal:380, protein:28, carbs:0.5, fat:29,  fiber:0, sugar:0.5, cat:"Fromages", portion:{name:"tranche",g:30} },
+  { id:1504, name:"Comte tranche",            cal:413, protein:29, carbs:0.4, fat:33,  fiber:0, sugar:0.2, cat:"Fromages", portion:{name:"tranche",g:30} },
+  { id:1505, name:"Mozzarella boule",         cal:280, protein:18, carbs:2,   fat:22,  fiber:0, sugar:1,   cat:"Fromages", portion:{name:"boule",g:125} },
+  { id:1506, name:"Parmesan rape",            cal:431, protein:38, carbs:0,   fat:29,  fiber:0, sugar:0,   cat:"Fromages" },
+  { id:1507, name:"Cheddar tranche",          cal:402, protein:25, carbs:1.3, fat:33,  fiber:0, sugar:0.5, cat:"Fromages", portion:{name:"tranche",g:25} },
+  { id:1508, name:"Gouda tranche",            cal:356, protein:25, carbs:2.2, fat:27,  fiber:0, sugar:2,   cat:"Fromages", portion:{name:"tranche",g:25} },
+  { id:1509, name:"Boursin ail fines herbes", cal:340, protein:7,  carbs:2,   fat:33,  fiber:0, sugar:1,   cat:"Fromages", portion:{name:"portion",g:30} },
+  { id:1510, name:"Fromage frais nature",     cal:98,  protein:6,  carbs:3.8, fat:7,   fiber:0, sugar:3,   cat:"Fromages" },
+  // -- YAOURTS SUCRES -----------------------------------------------------------
+  { id:1520, name:"Yaourt vanille sucre",     cal:95,  protein:3.5, carbs:15, fat:2.5, fiber:0, sugar:13,  cat:"Laitiers Sucres", portion:{name:"pot",g:125} },
+  { id:1521, name:"Yaourt fraise sucre",      cal:92,  protein:3.5, carbs:16, fat:1.8, fiber:0, sugar:14,  cat:"Laitiers Sucres", portion:{name:"pot",g:125} },
+  { id:1522, name:"Yaourt grec miel",         cal:120, protein:8,   carbs:12, fat:4,   fiber:0, sugar:11,  cat:"Laitiers Sucres", portion:{name:"pot",g:150} },
+  { id:1523, name:"Fromage blanc sucre",      cal:95,  protein:6,   carbs:12, fat:2.5, fiber:0, sugar:11,  cat:"Laitiers Sucres", portion:{name:"pot",g:100} },
+  { id:1524, name:"Creme dessert chocolat",   cal:140, protein:3.5, carbs:22, fat:4.5, fiber:0.5,sugar:18, cat:"Laitiers Sucres", portion:{name:"pot",g:125} },
+  { id:1525, name:"Riz au lait pot",          cal:118, protein:3.5, carbs:20, fat:2.5, fiber:0, sugar:14,  cat:"Laitiers Sucres", portion:{name:"pot",g:200} },
+  { id:1526, name:"Creme dessert vanille",    cal:130, protein:3,   carbs:20, fat:4,   fiber:0, sugar:17,  cat:"Laitiers Sucres", portion:{name:"pot",g:125} },
+  { id:1527, name:"Yaourt citron sucre",      cal:90,  protein:3.5, carbs:15, fat:1.8, fiber:0, sugar:13,  cat:"Laitiers Sucres", portion:{name:"pot",g:125} },
+  { id:1528, name:"Skyr vanille",             cal:80,  protein:11,  carbs:7,  fat:0.2, fiber:0, sugar:6,   cat:"Laitiers Sucres", portion:{name:"pot",g:150} },
+  { id:1529, name:"Petits filous fraise",     cal:80,  protein:5,   carbs:11, fat:1.5, fiber:0, sugar:10,  cat:"Laitiers Sucres", portion:{name:"pot",g:54} },
+  // -- CONDIMENTS & EPICES ------------------------------------------------------
+  { id:1540, name:"Sauce soja sucree",        cal:73,  protein:4,   carbs:14, fat:0.1, fiber:0, sugar:12,  cat:"Condiments" },
+  { id:1541, name:"Sauce teriyaki",           cal:89,  protein:3,   carbs:18, fat:0.2, fiber:0, sugar:16,  cat:"Condiments" },
+  { id:1542, name:"Sauce huitre",             cal:51,  protein:1,   carbs:11, fat:0.3, fiber:0, sugar:5,   cat:"Condiments" },
+  { id:1543, name:"Sauce barbecue",           cal:172, protein:1.5, carbs:40, fat:0.5, fiber:0.5,sugar:36, cat:"Condiments" },
+  { id:1544, name:"Curry en poudre",          cal:15,  protein:0.6, carbs:2,  fat:0.5, fiber:1, sugar:0,   cat:"Condiments" },
+  { id:1545, name:"Paprika",                  cal:12,  protein:0.5, carbs:2,  fat:0.3, fiber:1, sugar:0.5, cat:"Condiments" },
+  { id:1546, name:"Cumin",                    cal:15,  protein:0.7, carbs:2,  fat:0.5, fiber:1, sugar:0,   cat:"Condiments" },
+  { id:1547, name:"Herbes de Provence",       cal:12,  protein:0.5, carbs:2,  fat:0.3, fiber:1, sugar:0,   cat:"Condiments" },
+  { id:1548, name:"Sauce Worcester",          cal:78,  protein:1.2, carbs:18, fat:0.1, fiber:0, sugar:16,  cat:"Condiments" },
+  { id:1549, name:"Sauce Tabasco",            cal:12,  protein:0.5, carbs:1.5,fat:0.2, fiber:0.3,sugar:0.5,cat:"Condiments" },
+  { id:1550, name:"Vinaigre balsamique",      cal:88,  protein:0.5, carbs:17, fat:0,   fiber:0, sugar:15,  cat:"Condiments" },
+  { id:1551, name:"Coriandre fraiche",        cal:23,  protein:2.1, carbs:3.7,fat:0.5, fiber:2.8,sugar:0.9,cat:"Condiments" },
+  { id:1552, name:"Persil frais",             cal:36,  protein:3,   carbs:6,  fat:0.8, fiber:3.3,sugar:0.9,cat:"Condiments" },
+  { id:1553, name:"Basilic frais",            cal:22,  protein:3.2, carbs:2.7,fat:0.6, fiber:1.6,sugar:0.3,cat:"Condiments" },
+  { id:1554, name:"Thym",                     cal:101, protein:5.6, carbs:24, fat:1.7, fiber:14, sugar:0,  cat:"Condiments" },
+  { id:1555, name:"Cannelle",                 cal:20,  protein:0.3, carbs:6,  fat:0.1, fiber:4,  sugar:0.2,cat:"Condiments" },
+  // -- PAINS & VIENNOISERIES ----------------------------------------------------
+  { id:1560, name:"Bagel nature",             cal:270, protein:10, carbs:53, fat:2,   fiber:2, sugar:5,   cat:"Pains", portion:{name:"bagel",g:105} },
+  { id:1561, name:"Naan nature",              cal:310, protein:8,  carbs:55, fat:6,   fiber:2, sugar:4,   cat:"Pains", portion:{name:"naan",g:80} },
+  { id:1562, name:"Pita",                     cal:275, protein:9,  carbs:53, fat:2,   fiber:3, sugar:2,   cat:"Pains", portion:{name:"pita",g:65} },
+  { id:1563, name:"Pain burger brioche",      cal:300, protein:8,  carbs:50, fat:7,   fiber:2, sugar:8,   cat:"Pains", portion:{name:"pain",g:80} },
+  { id:1564, name:"Crackers (3 pcs)",         cal:420, protein:8,  carbs:68, fat:12,  fiber:3, sugar:2,   cat:"Pains", portion:{name:"3 crackers",g:30} },
+  { id:1565, name:"Pain aux cereales",        cal:255, protein:9,  carbs:44, fat:4,   fiber:5, sugar:4,   cat:"Pains", portion:{name:"tranche",g:35} },
+  { id:1566, name:"Pain de seigle",           cal:259, protein:8.5,carbs:48, fat:1.7, fiber:6, sugar:1,   cat:"Pains", portion:{name:"tranche",g:30} },
+  { id:1567, name:"Wrap ble complet",         cal:260, protein:8,  carbs:44, fat:6,   fiber:5, sugar:3,   cat:"Pains", portion:{name:"wrap",g:60} },
+  // -- POISSONS & FRUITS DE MER SUPPLEMENTAIRES ---------------------------------
+  { id:1570, name:"Thon frais cuit",          cal:184, protein:30, carbs:0,  fat:6,   fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1571, name:"Saumon fume",              cal:172, protein:25, carbs:0,  fat:8,   fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1572, name:"Dorade cuite",             cal:121, protein:22, carbs:0,  fat:3.5, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1573, name:"Lieu noir cuit",           cal:90,  protein:20, carbs:0,  fat:1,   fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1574, name:"Colin cuit",               cal:90,  protein:19, carbs:0,  fat:1.2, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1575, name:"Sole cuite",               cal:86,  protein:18, carbs:0,  fat:1.3, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1576, name:"Thon germon boite huile",  cal:200, protein:26, carbs:0,  fat:11,  fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1577, name:"Anchois boite",            cal:210, protein:29, carbs:0,  fat:10,  fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1578, name:"Coquilles Saint-Jacques",  cal:88,  protein:17, carbs:3,  fat:0.9, fiber:0, sugar:0,   cat:"Poissons" },
+  { id:1579, name:"Moules cuites",            cal:86,  protein:12, carbs:4,  fat:2.2, fiber:0, sugar:0,   cat:"Poissons" },
+  // -- VIANDES SUPPLEMENTAIRES --------------------------------------------------
+  { id:1580, name:"Blanc de dinde tranche",   cal:104, protein:23, carbs:0,  fat:1,   fiber:0, sugar:0,   cat:"Viandes", portion:{name:"tranche",g:40} },
+  { id:1581, name:"Roti de boeuf cuit",       cal:175, protein:26, carbs:0,  fat:7.5, fiber:0, sugar:0,   cat:"Viandes" },
+  { id:1582, name:"Poulet tikka",             cal:165, protein:25, carbs:5,  fat:5,   fiber:0.5,sugar:3,  cat:"Viandes" },
+  { id:1583, name:"Boudin blanc",             cal:220, protein:14, carbs:5,  fat:16,  fiber:0, sugar:1,   cat:"Viandes", portion:{name:"boudin",g:90} },
+  { id:1584, name:"Saucisse de Morteau",      cal:340, protein:18, carbs:1,  fat:30,  fiber:0, sugar:0,   cat:"Viandes", portion:{name:"tranche",g:80} },
+  { id:1585, name:"Jambon de Bayonne",        cal:190, protein:21, carbs:0,  fat:12,  fiber:0, sugar:0,   cat:"Viandes", portion:{name:"tranche",g:25} },
+  { id:1586, name:"Andouillette grille",      cal:290, protein:16, carbs:2,  fat:25,  fiber:0, sugar:0,   cat:"Viandes", portion:{name:"andouillette",g:150} },
+  { id:1587, name:"Filet de canard",          cal:190, protein:25, carbs:0,  fat:10,  fiber:0, sugar:0,   cat:"Viandes" },
+  { id:1588, name:"Lapin cuit",               cal:162, protein:25, carbs:0,  fat:7,   fiber:0, sugar:0,   cat:"Viandes" },
+  { id:1589, name:"Veau blanquette",          cal:185, protein:20, carbs:3,  fat:10,  fiber:0, sugar:1,   cat:"Viandes" },
+  // -- FECULENTS SUPPLEMENTAIRES ------------------------------------------------
+  { id:1600, name:"Gnocchis cuits",           cal:162, protein:3.5, carbs:33, fat:1.5, fiber:1.5,sugar:0.5,cat:"Feculents" },
+  { id:1601, name:"Orge perle cuit",          cal:123, protein:2.3, carbs:28, fat:0.4, fiber:3.8,sugar:0.4,cat:"Feculents" },
+  { id:1602, name:"Millet cuit",              cal:119, protein:3.5, carbs:24, fat:1,   fiber:1.3,sugar:0,  cat:"Feculents" },
+  { id:1603, name:"Sarrasin cuit",            cal:92,  protein:3.4, carbs:20, fat:0.6, fiber:2.7,sugar:0.9,cat:"Feculents" },
+  { id:1604, name:"Riz de konjac",            cal:8,   protein:0,   carbs:2,  fat:0,   fiber:2,  sugar:0,  cat:"Feculents", portion:{name:"sachet",g:200} },
+  { id:1605, name:"Tagliatelles cuites",      cal:155, protein:5.5, carbs:30, fat:0.9, fiber:1.8,sugar:0.5,cat:"Feculents" },
+  { id:1606, name:"Rigatoni cuits",           cal:158, protein:5.5, carbs:31, fat:0.9, fiber:1.8,sugar:0.6,cat:"Feculents" },
+  { id:1607, name:"Fregola cuite",            cal:165, protein:5.8, carbs:33, fat:0.8, fiber:2,  sugar:0.5,cat:"Feculents" },
+  { id:1608, name:"Pain de mais (tranche)",   cal:265, protein:6,   carbs:53, fat:3.5, fiber:3,  sugar:6,  cat:"Feculents", portion:{name:"tranche",g:35} },
+  // -- FRUITS SUPPLEMENTAIRES ---------------------------------------------------
+  { id:1620, name:"Papaye",                   cal:43,  protein:0.5, carbs:11, fat:0.3, fiber:1.7,sugar:8,  cat:"Fruits" },
+  { id:1621, name:"Grenade",                  cal:83,  protein:1.7, carbs:19, fat:1.2, fiber:4,  sugar:14, cat:"Fruits", portion:{name:"demi grenade",g:150} },
+  { id:1622, name:"Litchi",                   cal:66,  protein:0.8, carbs:17, fat:0.4, fiber:1.3,sugar:15, cat:"Fruits" },
+  { id:1623, name:"Goyave",                   cal:68,  protein:2.6, carbs:14, fat:1,   fiber:5.4,sugar:9,  cat:"Fruits" },
+  { id:1624, name:"Noix de coco fraiche",     cal:354, protein:3.3, carbs:15, fat:33,  fiber:9,  sugar:6,  cat:"Fruits" },
+  { id:1625, name:"Figue fraiche",            cal:74,  protein:0.8, carbs:19, fat:0.3, fiber:2.9,sugar:16, cat:"Fruits", portion:{name:"figue",g:50} },
+  { id:1626, name:"Physalis",                 cal:53,  protein:1.9, carbs:11, fat:0.7, fiber:3.9,sugar:8,  cat:"Fruits" },
+  { id:1627, name:"Mirabelles",               cal:57,  protein:0.5, carbs:14, fat:0.2, fiber:1.5,sugar:12, cat:"Fruits" },
+  { id:1628, name:"Quetsches",                cal:47,  protein:0.7, carbs:11, fat:0.3, fiber:1.4,sugar:10, cat:"Fruits" },
+  { id:1629, name:"Groseilles",               cal:56,  protein:1.4, carbs:14, fat:0.2, fiber:4.3,sugar:8,  cat:"Fruits" },
+  { id:1630, name:"Cassis",                   cal:63,  protein:1.4, carbs:15, fat:0.4, fiber:5.3,sugar:8,  cat:"Fruits" },
+  { id:1631, name:"Mure sauvage",             cal:43,  protein:1.4, carbs:10, fat:0.5, fiber:5.3,sugar:5,  cat:"Fruits" },
+  { id:1632, name:"Cranberry sechee",         cal:308, protein:0.1, carbs:82, fat:1.4, fiber:5.7,sugar:73, cat:"Fruits", portion:{name:"poignee",g:30} },
+  // -- LEGUMES SUPPLEMENTAIRES --------------------------------------------------
+  { id:1650, name:"Artichaut cuit",           cal:53,  protein:3.5, carbs:11, fat:0.2, fiber:5.4,sugar:1,  cat:"Legumes", portion:{name:"artichaut",g:120} },
+  { id:1651, name:"Fenouil cru",              cal:31,  protein:1.2, carbs:7,  fat:0.2, fiber:3.1,sugar:3.9,cat:"Legumes" },
+  { id:1652, name:"Betterave cuite",          cal:44,  protein:1.7, carbs:10, fat:0.1, fiber:2,  sugar:8,  cat:"Legumes" },
+  { id:1653, name:"Navet cuit",               cal:28,  protein:0.9, carbs:6,  fat:0.1, fiber:1.8,sugar:3.8,cat:"Legumes" },
+  { id:1654, name:"Panais cuit",              cal:71,  protein:1.8, carbs:17, fat:0.3, fiber:4.4,sugar:5,  cat:"Legumes" },
+  { id:1655, name:"Topinambour cuit",         cal:73,  protein:2,   carbs:17, fat:0.1, fiber:1.6,sugar:10, cat:"Legumes" },
+  { id:1656, name:"Courge butternut",         cal:45,  protein:1,   carbs:12, fat:0.1, fiber:2,  sugar:5,  cat:"Legumes" },
+  { id:1657, name:"Potiron cuit",             cal:26,  protein:1,   carbs:7,  fat:0.1, fiber:0.5,sugar:3,  cat:"Legumes" },
+  { id:1658, name:"Epinards surgeles cuits",  cal:23,  protein:2.9, carbs:3.6,fat:0.4, fiber:2.2,sugar:0.4,cat:"Legumes" },
+  { id:1659, name:"Chou kale",                cal:50,  protein:4.3, carbs:10, fat:0.9, fiber:2,  sugar:2.3,cat:"Legumes" },
+  { id:1660, name:"Chou rouge",               cal:31,  protein:1.4, carbs:7,  fat:0.2, fiber:2.1,sugar:3.8,cat:"Legumes" },
+  { id:1661, name:"Chou blanc",               cal:25,  protein:1.3, carbs:6,  fat:0.1, fiber:2.5,sugar:3,  cat:"Legumes" },
+  { id:1662, name:"Brocoli surgele cuit",     cal:27,  protein:2.5, carbs:5,  fat:0.3, fiber:2.6,sugar:1.5,cat:"Legumes" },
+  { id:1663, name:"Poivron jaune",            cal:27,  protein:1,   carbs:6.3,fat:0.3, fiber:0.9,sugar:4.7,cat:"Legumes" },
+  { id:1664, name:"Poivron orange",           cal:31,  protein:1,   carbs:7,  fat:0.3, fiber:2.1,sugar:5,  cat:"Legumes" },
+  { id:1665, name:"Germes de soja",           cal:30,  protein:3,   carbs:5.9,fat:0.2, fiber:1.8,sugar:3.6,cat:"Legumes" },
+  { id:1666, name:"Endive",                   cal:17,  protein:0.9, carbs:3.5,fat:0.1, fiber:1.8,sugar:1.7,cat:"Legumes" },
+  { id:1667, name:"Roquette",                 cal:25,  protein:2.6, carbs:3.7,fat:0.7, fiber:1.6,sugar:2,  cat:"Legumes" },
+  { id:1668, name:"Mache",                    cal:21,  protein:2,   carbs:3.6,fat:0.4, fiber:1.8,sugar:0.5,cat:"Legumes" },
+  { id:1669, name:"Cresson",                  cal:22,  protein:2.3, carbs:3.3,fat:0.3, fiber:0.5,sugar:0.5,cat:"Legumes" },
+  { id:1670, name:"Pousses d'epinards",       cal:23,  protein:2.9, carbs:3.6,fat:0.4, fiber:2.2,sugar:0.4,cat:"Legumes" },
+  // -- BOISSONS SUPPLEMENTAIRES -------------------------------------------------
+  { id:1680, name:"Eau gazeuse",              cal:0,   protein:0,   carbs:0,  fat:0,   fiber:0, sugar:0,   cat:"Boissons", portion:{name:"verre",g:250} },
+  { id:1681, name:"Limonade",                 cal:35,  protein:0,   carbs:8.7,fat:0,   fiber:0, sugar:8.7, cat:"Boissons", portion:{name:"verre",g:250} },
+  { id:1682, name:"Jus de raisin",            cal:60,  protein:0.4, carbs:15, fat:0.1, fiber:0.1,sugar:14, cat:"Boissons", portion:{name:"verre",g:200} },
+  { id:1683, name:"Lait ribot (fermente)",    cal:38,  protein:3.3, carbs:4.8,fat:0.9, fiber:0, sugar:4.8, cat:"Boissons", portion:{name:"verre",g:200} },
+  { id:1684, name:"Kombucha nature",          cal:13,  protein:0,   carbs:3,  fat:0,   fiber:0, sugar:2.5, cat:"Boissons", portion:{name:"bouteille",g:330} },
+  { id:1685, name:"Jus de grenade",           cal:54,  protein:0.4, carbs:13, fat:0.3, fiber:0.1,sugar:12, cat:"Boissons", portion:{name:"verre",g:200} },
+  { id:1686, name:"Jus de carotte",           cal:40,  protein:0.9, carbs:9.3,fat:0.2, fiber:0.4,sugar:6,  cat:"Boissons", portion:{name:"verre",g:200} },
+  { id:1687, name:"Jus de tomate",            cal:17,  protein:0.8, carbs:4,  fat:0.1, fiber:0.4,sugar:3,  cat:"Boissons", portion:{name:"verre",g:200} },
+  { id:1688, name:"Boisson energisante",      cal:45,  protein:0,   carbs:11, fat:0,   fiber:0, sugar:11,  cat:"Boissons", portion:{name:"canette",g:250} },
+  { id:1689, name:"Smoothie fruits rouges",   cal:65,  protein:1,   carbs:16, fat:0.3, fiber:1.5,sugar:13, cat:"Boissons", portion:{name:"verre",g:250} },
+  // -- NOIX & OLEAGINEUX SUPPLEMENTAIRES ----------------------------------------
+  { id:1700, name:"Noix de macadamia",        cal:718, protein:8,   carbs:14, fat:76,  fiber:9, sugar:4,   cat:"Noix & Oleagineux", portion:{name:"poignee",g:25} },
+  { id:1701, name:"Noisettes",                cal:628, protein:15,  carbs:17, fat:61,  fiber:10,sugar:4.3, cat:"Noix & Oleagineux", portion:{name:"poignee",g:25} },
+  { id:1702, name:"Noix de pecan",            cal:691, protein:9,   carbs:14, fat:72,  fiber:10,sugar:4,   cat:"Noix & Oleagineux", portion:{name:"poignee",g:25} },
+  { id:1703, name:"Noix du bresil",           cal:659, protein:14,  carbs:12, fat:67,  fiber:7.5,sugar:2.3,cat:"Noix & Oleagineux", portion:{name:"3 noix",g:30} },
+  { id:1704, name:"Noix de pin",              cal:673, protein:14,  carbs:13, fat:68,  fiber:3.7,sugar:3.6,cat:"Noix & Oleagineux" },
+  { id:1705, name:"Pignons de pin",           cal:673, protein:14,  carbs:13, fat:68,  fiber:3.7,sugar:3.6,cat:"Noix & Oleagineux", portion:{name:"poignee",g:20} },
+  { id:1706, name:"Graines de courge",        cal:559, protein:30,  carbs:11, fat:49,  fiber:6, sugar:1,   cat:"Noix & Oleagineux", portion:{name:"poignee",g:25} },
+  { id:1707, name:"Graines de sesame",        cal:573, protein:18,  carbs:23, fat:50,  fiber:12,sugar:0.3, cat:"Noix & Oleagineux" },
+  { id:1708, name:"Graines de chanvre",       cal:553, protein:32,  carbs:9,  fat:49,  fiber:4, sugar:1,   cat:"Noix & Oleagineux" },
+  { id:1709, name:"Cacahuetes grillees",      cal:567, protein:26,  carbs:16, fat:49,  fiber:8.5,sugar:4,  cat:"Noix & Oleagineux", portion:{name:"poignee",g:25} },
+  // -- SNACKS SUPPLEMENTAIRES ---------------------------------------------------
+  { id:1720, name:"Pop corn sale",            cal:375, protein:11,  carbs:74, fat:5,   fiber:15,sugar:0.9, cat:"Snacks & Sucreries", portion:{name:"bol",g:40} },
+  { id:1721, name:"Crackers riz souffle",     cal:387, protein:7,   carbs:85, fat:1.5, fiber:1.5,sugar:0.5,cat:"Snacks & Sucreries", portion:{name:"galette",g:9} },
+  { id:1722, name:"Barre de cereales",        cal:400, protein:5,   carbs:72, fat:10,  fiber:4, sugar:30,  cat:"Snacks & Sucreries", portion:{name:"barre",g:40} },
+  { id:1723, name:"Madeleine maison",         cal:420, protein:7,   carbs:55, fat:19,  fiber:1, sugar:28,  cat:"Snacks & Sucreries", portion:{name:"madeleine",g:35} },
+  { id:1724, name:"Pain d'epices",            cal:335, protein:5,   carbs:74, fat:1.5, fiber:2, sugar:42,  cat:"Snacks & Sucreries", portion:{name:"tranche",g:30} },
+  { id:1725, name:"Speculoos",                cal:484, protein:6,   carbs:74, fat:18,  fiber:2, sugar:38,  cat:"Snacks & Sucreries", portion:{name:"2 biscuits",g:20} },
+  { id:1726, name:"Gateau au yaourt",         cal:310, protein:6,   carbs:45, fat:12,  fiber:1, sugar:28,  cat:"Snacks & Sucreries", portion:{name:"part",g:80} },
+  { id:1727, name:"Financier amande",         cal:460, protein:9,   carbs:52, fat:24,  fiber:2, sugar:35,  cat:"Snacks & Sucreries", portion:{name:"financier",g:40} },
+  { id:1728, name:"Religieuse chocolat",      cal:280, protein:5,   carbs:36, fat:13,  fiber:1, sugar:22,  cat:"Snacks & Sucreries", portion:{name:"religieuse",g:100} },
+  { id:1729, name:"Eclair cafe",              cal:270, protein:5,   carbs:34, fat:12,  fiber:0.5,sugar:20, cat:"Snacks & Sucreries", portion:{name:"eclair",g:90} },
+  { id:1730, name:"Paris-Brest",              cal:380, protein:6,   carbs:38, fat:22,  fiber:1, sugar:26,  cat:"Snacks & Sucreries", portion:{name:"part",g:100} },
+  // -- PLATS SUPPLEMENTAIRES ----------------------------------------------------
+  { id:1750, name:"Boeuf bourguignon",        cal:185, protein:18,  carbs:8,  fat:9,   fiber:1.5,sugar:3,  cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1751, name:"Blanquette de veau",       cal:195, protein:18,  carbs:10, fat:10,  fiber:1, sugar:2,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1752, name:"Couscous complet",         cal:280, protein:16,  carbs:38, fat:8,   fiber:3, sugar:4,   cat:"Plats & Recettes", portion:{name:"assiette",g:350} },
+  { id:1753, name:"Tajine poulet citron",     cal:220, protein:22,  carbs:15, fat:9,   fiber:2, sugar:5,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1754, name:"Pad thai crevettes",       cal:290, protein:18,  carbs:38, fat:8,   fiber:2, sugar:6,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1755, name:"Ramen maison",             cal:350, protein:20,  carbs:48, fat:9,   fiber:2, sugar:4,   cat:"Plats & Recettes", portion:{name:"bol",g:400} },
+  { id:1756, name:"Bibimbap",                 cal:320, protein:18,  carbs:48, fat:7,   fiber:3, sugar:5,   cat:"Plats & Recettes", portion:{name:"bol",g:350} },
+  { id:1757, name:"Shakshuka",                cal:180, protein:12,  carbs:12, fat:9,   fiber:2.5,sugar:7,  cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1758, name:"Salade nicoise",           cal:280, protein:20,  carbs:18, fat:14,  fiber:3, sugar:4,   cat:"Plats & Recettes", portion:{name:"salade",g:300} },
+  { id:1759, name:"Boeuf stroganoff",         cal:250, protein:22,  carbs:10, fat:14,  fiber:1, sugar:3,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1760, name:"Sushi (6 pieces)",         cal:290, protein:14,  carbs:48, fat:3,   fiber:1, sugar:8,   cat:"Plats & Recettes", portion:{name:"6 sushis",g:200} },
+  { id:1761, name:"Gyozas (6 pieces)",        cal:270, protein:12,  carbs:32, fat:9,   fiber:2, sugar:3,   cat:"Plats & Recettes", portion:{name:"6 gyozas",g:150} },
+  { id:1762, name:"Souvlaki",                 cal:320, protein:25,  carbs:28, fat:12,  fiber:2, sugar:3,   cat:"Plats & Recettes", portion:{name:"portion",g:250} },
+  { id:1763, name:"Chili con carne",          cal:230, protein:18,  carbs:22, fat:8,   fiber:5, sugar:4,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1764, name:"Fajitas poulet",           cal:310, protein:24,  carbs:32, fat:10,  fiber:3, sugar:5,   cat:"Plats & Recettes", portion:{name:"2 fajitas",g:250} },
+  { id:1765, name:"Enchiladas",               cal:340, protein:18,  carbs:38, fat:12,  fiber:3, sugar:5,   cat:"Plats & Recettes", portion:{name:"2 enchiladas",g:300} },
+  { id:1766, name:"Hachis parmentier",        cal:195, protein:14,  carbs:18, fat:7,   fiber:2, sugar:2,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  { id:1767, name:"Pot-au-feu",               cal:165, protein:18,  carbs:10, fat:6,   fiber:2, sugar:3,   cat:"Plats & Recettes", portion:{name:"assiette",g:350} },
+  { id:1768, name:"Cassoulet",                cal:290, protein:20,  carbs:25, fat:12,  fiber:4, sugar:2,   cat:"Plats & Recettes", portion:{name:"assiette",g:350} },
+  { id:1769, name:"Poulet basquaise",         cal:220, protein:24,  carbs:12, fat:9,   fiber:2, sugar:5,   cat:"Plats & Recettes", portion:{name:"assiette",g:300} },
+  // -- DESSERTS SUPPLEMENTAIRES -------------------------------------------------
+  { id:1780, name:"Creme catalane",           cal:230, protein:4,   carbs:28, fat:11,  fiber:0, sugar:24,  cat:"Desserts", portion:{name:"ramequin",g:120} },
+  { id:1781, name:"Profiteroles",             cal:350, protein:7,   carbs:35, fat:20,  fiber:1, sugar:22,  cat:"Desserts", portion:{name:"3 profiteroles",g:100} },
+  { id:1782, name:"Tarte tatin",              cal:290, protein:3,   carbs:42, fat:13,  fiber:2, sugar:28,  cat:"Desserts", portion:{name:"part",g:120} },
+  { id:1783, name:"Clafoutis cerises",        cal:190, protein:6,   carbs:28, fat:7,   fiber:1, sugar:20,  cat:"Desserts", portion:{name:"part",g:120} },
+  { id:1784, name:"Panna cotta",              cal:210, protein:3,   carbs:22, fat:13,  fiber:0, sugar:18,  cat:"Desserts", portion:{name:"verrine",g:120} },
+  { id:1785, name:"Sorbet citron",            cal:105, protein:0.3, carbs:28, fat:0,   fiber:0.5,sugar:26, cat:"Desserts", portion:{name:"boule",g:80} },
+  { id:1786, name:"Sorbet mangue",            cal:110, protein:0.5, carbs:28, fat:0,   fiber:1, sugar:25,  cat:"Desserts", portion:{name:"boule",g:80} },
+  { id:1787, name:"Glace chocolat",           cal:220, protein:4,   carbs:26, fat:11,  fiber:1, sugar:22,  cat:"Desserts", portion:{name:"boule",g:80} },
+  { id:1788, name:"Mille-feuille",            cal:410, protein:5,   carbs:50, fat:21,  fiber:1, sugar:30,  cat:"Desserts", portion:{name:"part",g:120} },
+  { id:1789, name:"Opera",                    cal:390, protein:5,   carbs:42, fat:22,  fiber:1, sugar:32,  cat:"Desserts", portion:{name:"part",g:100} },
 ];
 
 // -- MENUS COMPLETS (classés par repas) --------------------------------------
@@ -584,6 +761,10 @@ export default function App() {
     try { localStorage.setItem("gainmode_disclaimer", "accepted"); } catch {}
     setDisclaimer(false);
   };
+  // disclaimer fix: force update
+  React.useEffect(() => {
+    if (!disclaimer) window.scrollTo(0,0);
+  }, [disclaimer]);
 
   if (disclaimer) {
     return <DisclaimerScreen onAccept={acceptDisclaimer} />;
@@ -722,12 +903,28 @@ export default function App() {
         input,select,textarea{outline:none;font-family:inherit;}
         button{font-family:inherit;cursor:pointer;}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes slideInRight{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes slideInLeft{from{opacity:0;transform:translateX(-32px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes slideInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+        @keyframes glow{0%,100%{box-shadow:0 0 8px #f9731640}50%{box-shadow:0 0 24px #f97316aa}}
+        @keyframes warningPulse{0%,100%{background:#7f1d1d}50%{background:#991b1b}}
+        .slide-in{animation:slideInUp .25s cubic-bezier(.4,0,.2,1)}
+        .tab-active-glow{box-shadow:0 2px 12px #f9731660 !important;}
       `}</style>
 
       {/* -- HEADER ------------------------------------------------------- */}
       <header style={S.header}>
         <div>
-          <div style={S.logo}> <span style={{color:"#f97316",fontWeight:900,letterSpacing:2}}>GainMode</span> </div>
+          <div style={S.logo}>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginRight:8}}>
+              <rect width="38" height="38" rx="10" fill="#f97316"/>
+              <text x="19" y="27" textAnchor="middle" fontFamily="system-ui,sans-serif" fontWeight="900" fontSize="22" fill="white" letterSpacing="-2">GM</text>
+            </svg>
+            <div>
+              <div style={{fontSize:20,fontWeight:900,color:"#f97316",letterSpacing:2,lineHeight:1}}>GainMode</div>
+            </div>
+          </div>
           <div style={S.headerSub}>60 kg vers 70 kg . 6 mois . {adjustedCal} kcal/jour</div>
         </div>
         <div style={S.headerStats}>
@@ -755,7 +952,7 @@ export default function App() {
 
         {/* ==================== JOURNAL ================================ */}
         {tab==="journal" && (
-          <div style={S.page}>
+          <div style={S.page} className="slide-in">
             {/* Date nav */}
             <div style={S.dateRow}>
               <button style={S.dateArrow} onClick={()=>{const d=new Date(date);d.setDate(d.getDate()-1);setDate(d.toISOString().slice(0,10));}}>&lt;</button>
@@ -896,18 +1093,52 @@ export default function App() {
                                 </tr>
                                 {isEditing && (
                                   <tr style={{background:"#1e293b"}}>
-                                    <td colSpan="8" style={{padding:"8px 10px"}}>
-                                      <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
-                                        <span style={{fontSize:11,color:"#9ca3af"}}>Modifier la quantité :</span>
+                                    <td colSpan="8" style={{padding:"10px 12px"}}>
+                                      <div style={{fontSize:11,color:"#f97316",fontWeight:700,marginBottom:8}}>Modifier {item.name}</div>
+                                      <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginBottom:8}}>
+                                        <span style={{fontSize:11,color:"#9ca3af"}}>Quantite :</span>
                                         <input type="number" value={editGrams} onChange={e=>setEditGrams(e.target.value)}
-                                          style={{background:"#111827",border:"1px solid #374151",color:"#f1f5f9",borderRadius:6,padding:"4px 8px",fontSize:13,width:70}}/>
+                                          style={{background:"#111827",border:"1px solid #374151",color:"#f1f5f9",borderRadius:6,padding:"4px 8px",fontSize:13,width:65}}/>
                                         <span style={{fontSize:11,color:"#6b7280"}}>g</span>
-                                        <button onClick={()=>{editItemQty(slot.id,item.id,parseFloat(editGrams)||100);setEditingItem(null);}}
-                                          style={{background:"#10b981",border:"none",color:"#fff",borderRadius:6,padding:"5px 10px",fontSize:11,fontWeight:700}}>
-                                          OK
+                                      </div>
+                                      <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:8}}>
+                                        {[
+                                          {label:"Cal",key:"cal",color:"#f97316"},
+                                          {label:"Prot",key:"protein",color:"#ef4444"},
+                                          {label:"Gluc",key:"carbs",color:"#f59e0b"},
+                                          {label:"Lip",key:"fat",color:"#8b5cf6"},
+                                          {label:"Fib",key:"fiber",color:"#10b981"},
+                                          {label:"Suc",key:"sugar",color:"#ec4899"},
+                                        ].map(field => (
+                                          <div key={field.key} style={{display:"flex",flexDirection:"column",gap:2,alignItems:"center"}}>
+                                            <span style={{fontSize:9,color:field.color,fontWeight:700}}>{field.label}</span>
+                                            <input type="number" step="0.1"
+                                              defaultValue={item[field.key]}
+                                              id={`edit-${item.id}-${field.key}`}
+                                              style={{background:"#111827",border:`1px solid ${field.color}40`,color:field.color,
+                                                borderRadius:5,padding:"3px 5px",fontSize:11,width:52,textAlign:"center"}}/>
+                                          </div>
+                                        ))}
+                                      </div>
+                                      <div style={{display:"flex",gap:8}}>
+                                        <button onClick={()=>{
+                                          const meals = {...(day.meals||{})};
+                                          meals[slot.id] = (meals[slot.id]||[]).map(it => {
+                                            if (it.id !== item.id) return it;
+                                            const getVal = (key) => {
+                                              const el = document.getElementById("edit-"+item.id+"-"+key);
+                                              return el ? (parseFloat(el.value)||0) : it[key];
+                                            };
+                                            return {...it, grams: parseFloat(editGrams)||it.grams, displayQty:(editGrams||it.grams)+"g",
+                                              cal:getVal("cal"), protein:getVal("protein"), carbs:getVal("carbs"),
+                                              fat:getVal("fat"), fiber:getVal("fiber"), sugar:getVal("sugar")};
+                                          });
+                                          updateDay({meals}); setEditingItem(null);
+                                        }} style={{background:"#10b981",border:"none",color:"#fff",borderRadius:6,padding:"7px 14px",fontSize:12,fontWeight:700}}>
+                                          Valider
                                         </button>
                                         <button onClick={()=>setEditingItem(null)}
-                                          style={{background:"#374151",border:"none",color:"#9ca3af",borderRadius:6,padding:"5px 10px",fontSize:11}}>
+                                          style={{background:"#374151",border:"none",color:"#9ca3af",borderRadius:6,padding:"7px 12px",fontSize:12}}>
                                           Annuler
                                         </button>
                                       </div>
@@ -1067,7 +1298,7 @@ export default function App() {
 
         {/* ==================== STATS ==================================== */}
         {tab==="stats"&&(
-          <div style={S.page}>
+          <div style={S.page} className="slide-in">
             {/* Weight chart */}
             <div style={S.chartCard}>
               <div style={S.chartTitle}> Évolution du poids</div>
@@ -1194,11 +1425,11 @@ export default function App() {
 
         {/* ==================== MENUS ===================================== */}
         {tab==="menus"&&(
-          <MenusTab />
+          <MenusTab addMenuToMeal={(slotId, entry) => { const meals = {...(day.meals||{})}; meals[slotId] = [...(meals[slotId]||[]), entry]; updateDay({meals}); }} />
         )}
 
         {tab==="tips"&&(
-          <div style={S.page}>
+          <div style={S.page} className="slide-in">
             {[
               { icon:"", title:"Ton profil ectomorphe", color:"#f97316", items:[
                 "Tu brûles plus de calories au repos que la moyenne - c'est génétique, pas une fatalité.",
@@ -1266,13 +1497,71 @@ export default function App() {
 function ProgramTab({ day, updateDay }) {
   const [currentWeek, setCurrentWeek] = React.useState(1);
   const [currentDayInWeek, setCurrentDayInWeek] = React.useState(1);
-  const [activeTab, setActiveTab] = React.useState("program"); // "program" | "exercises"
+  const [activeTab, setActiveTab] = React.useState("program");
   const [filterMuscle, setFilterMuscle] = React.useState("Tous");
   const [filterEquip, setFilterEquip] = React.useState("Tous");
   const [filterLevel, setFilterLevel] = React.useState("Tous");
+  const [customExos, setCustomExos] = React.useState({});
+  const [swapMode, setSwapMode] = React.useState(null);
+  // Timer states
+  const [timerActive, setTimerActive] = React.useState(false);
+  const [timerPaused, setTimerPaused] = React.useState(false);
+  const [timerSeconds, setTimerSeconds] = React.useState(0);
+  const [timerTarget, setTimerTarget] = React.useState(0);
+  const [currentExIdx, setCurrentExIdx] = React.useState(0);
+  const [currentSet, setCurrentSet] = React.useState(1);
+  const timerRef = React.useRef(null);
+
+  const playBell = () => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.setValueAtTime(880, ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.3);
+      g.gain.setValueAtTime(0.8, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+      o.start(ctx.currentTime); o.stop(ctx.currentTime + 1.2);
+    } catch(e) {}
+    if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+  };
+
+  React.useEffect(() => {
+    if (timerActive && !timerPaused) {
+      timerRef.current = setInterval(() => {
+        setTimerSeconds(s => {
+          if (s <= 1) {
+            clearInterval(timerRef.current);
+            setTimerActive(false);
+            setTimerSeconds(0);
+            playBell();
+            return 0;
+          }
+          return s - 1;
+        });
+      }, 1000);
+    } else {
+      clearInterval(timerRef.current);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [timerActive, timerPaused]);
+
+  const startTimer = (secs) => {
+    setTimerSeconds(secs);
+    setTimerTarget(secs);
+    setTimerActive(true);
+    setTimerPaused(false);
+  };
+  const stopTimer = () => { setTimerActive(false); setTimerSeconds(0); setTimerPaused(false); };
+  const togglePause = () => setTimerPaused(p => !p);
 
   const programDay = PROGRAM.find(p => p.week === currentWeek && p.day === currentDayInWeek);
-  const dayExercises = programDay ? programDay.exIds.map(id => EXERCISES_DB.find(e => e.id === id)).filter(Boolean) : [];
+  const dayExercises = programDay ? programDay.exIds.map((id, i) => {
+    const customKey = `${currentWeek}-${currentDayInWeek}-${i}`;
+    const customId = customExos[customKey];
+    return EXERCISES_DB.find(e => e.id === (customId || id));
+  }).filter(Boolean) : [];
   const totalCalDay = dayExercises.reduce((s,e) => s + e.cal * e.sets, 0);
 
   const muscles = ["Tous", ...Array.from(new Set(EXERCISES_DB.map(e => e.muscle)))];
@@ -1397,6 +1686,30 @@ function ProgramTab({ day, updateDay }) {
                           <span style={{background:ex.equipment==="Halteres"?"#3b82f620":"#10b98120",borderRadius:5,padding:"2px 7px",fontSize:10,color:ex.equipment==="Halteres"?"#60a5fa":"#4ade80"}}>{ex.equipment}</span>
                         </div>
                         <div style={{fontSize:11,color:"#f59e0b",marginTop:4}}>Tip: {ex.tip}</div>
+                        {/* Swap button */}
+                        <button onClick={()=>setSwapMode(swapMode===ex.id?null:ex.id)}
+                          style={{background:"#1f2937",border:"1px solid #374151",color:"#6b7280",
+                            borderRadius:6,padding:"3px 8px",fontSize:10,marginTop:6}}>
+                          Changer cet exo
+                        </button>
+                        {swapMode===ex.id && (
+                          <div style={{background:"#0a0a1a",border:"1px solid #374151",borderRadius:8,padding:8,marginTop:6}}>
+                            <div style={{fontSize:10,color:"#6b7280",marginBottom:6}}>Remplacer par :</div>
+                            <div style={{display:"flex",flexDirection:"column",gap:4,maxHeight:160,overflowY:"auto"}}>
+                              {EXERCISES_DB.filter(e2=>e2.muscle===ex.muscle && e2.id!==ex.id).map(e2=>(
+                                <button key={e2.id}
+                                  onClick={()=>{
+                                    setCustomExos(prev=>({...prev,[`${currentWeek}-${currentDayInWeek}-${i}`]:e2.id}));
+                                    setSwapMode(null);
+                                  }}
+                                  style={{background:"#1f2937",border:"none",color:"#e2e8f0",borderRadius:6,
+                                    padding:"6px 10px",fontSize:11,textAlign:"left"}}>
+                                  {e2.name} - {e2.level}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -1495,7 +1808,7 @@ function ProgramTab({ day, updateDay }) {
   );
 }
 
-function MenusTab() {
+function MenusTab({ addMenuToMeal = () => {} }) {
   const [search, setSearch] = React.useState("");
   const [slot, setSlot] = React.useState("all");
   const [tag, setTag] = React.useState("all");
