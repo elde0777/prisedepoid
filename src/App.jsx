@@ -782,9 +782,7 @@ export default function App() {
     setShowApp(true);
   };
 
-  if (!showApp) {
-    return <DisclaimerScreen onAccept={acceptDisclaimer} />;
-  }
+  // showApp controls which screen to show inline
 
   const day = db[date] || { meals:{ breakfast:[], lunch:[], snack:[], dinner:[] }, weight:null, sleep:null, exercises:[] };
 
@@ -888,6 +886,64 @@ export default function App() {
 
   return (
     <div style={S.root}>
+      {!showApp && (
+        <div style={{
+          position:"fixed",inset:0,background:"#050510",display:"flex",
+          flexDirection:"column",alignItems:"center",justifyContent:"center",
+          padding:"24px",fontFamily:"system-ui,sans-serif",zIndex:9999,overflowY:"auto"
+        }}>
+          <div style={{maxWidth:420,width:"100%"}}>
+            <div style={{textAlign:"center",marginBottom:32}}>
+              <div style={{fontSize:40,fontWeight:900,color:"#f97316",letterSpacing:4}}>GainMode</div>
+              <div style={{fontSize:12,color:"#6b7280",letterSpacing:2,marginTop:4}}>BUILT DIFFERENT</div>
+            </div>
+            <div style={{background:"#0f172a",border:"1px solid #1f2937",borderRadius:16,padding:24,marginBottom:20}}>
+              <div style={{fontSize:16,fontWeight:800,color:"#f97316",marginBottom:16,textAlign:"center"}}>
+                Avertissement important
+              </div>
+              {[
+                ["Pas un avis medical","Cette application ne remplace en aucun cas une consultation avec un medecin, un nutritionniste ou un coach sportif diplome."],
+                ["Donnees approximatives","Les valeurs caloriques sont des estimations. Elles ne constituent pas un bilan nutritionnel precis."],
+                ["Usage strictement personnel","Creee pour un usage prive. Toute utilisation par un tiers est faite sous sa propre responsabilite."],
+                ["Consulte un professionnel","Avant tout changement alimentaire ou sportif significatif, consulte un professionnel de sante."],
+              ].map(([title,text]) => (
+                <div key={title} style={{background:"#1e293b",borderRadius:10,padding:"10px 12px",borderLeft:"3px solid #f97316",marginBottom:10}}>
+                  <div style={{fontSize:12,fontWeight:700,color:"#f97316",marginBottom:3}}>{title}</div>
+                  <div style={{fontSize:11,color:"#6b7280",lineHeight:1.5}}>{text}</div>
+                </div>
+              ))}
+              <div style={{display:"flex",alignItems:"flex-start",gap:12,cursor:"pointer",padding:"8px 0",marginTop:8}}
+                onClick={()=>{
+                  const cb = document.getElementById("disclaimer-cb");
+                  if(cb) cb.checked = !cb.checked;
+                }}>
+                <input type="checkbox" id="disclaimer-cb"
+                  style={{width:20,height:20,accentColor:"#f97316",flexShrink:0,marginTop:2,cursor:"pointer"}}/>
+                <span style={{fontSize:12,color:"#94a3b8",lineHeight:1.6}}>
+                  Je comprends que GainMode est un outil indicatif personnel et non un substitut a un suivi medical ou sportif professionnel.
+                </span>
+              </div>
+            </div>
+            <button
+              onClick={()=>{
+                const cb = document.getElementById("disclaimer-cb");
+                if(cb && cb.checked) acceptDisclaimer();
+                else alert("Veuillez cocher la case pour continuer.");
+              }}
+              style={{
+                width:"100%",padding:"15px",
+                background:"linear-gradient(135deg,#f97316,#fbbf24)",
+                color:"#fff",border:"none",borderRadius:12,
+                fontWeight:800,fontSize:15,letterSpacing:1,cursor:"pointer"
+              }}>
+              Acceder a GainMode
+            </button>
+            <div style={{fontSize:10,color:"#374151",textAlign:"center",marginTop:12,lineHeight:1.5}}>
+              Ce message apparait une seule fois. En cas de doute sur ta sante, consulte un professionnel.
+            </div>
+          </div>
+        </div>
+      )}
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         body{background:#050510;}
